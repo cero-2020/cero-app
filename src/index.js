@@ -1,17 +1,32 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import {Drizzle} from "@drizzle/store";
+import {DrizzleContext} from "@drizzle/react-plugin";
+import {drizzleOptions} from "./drizzle/contract-config";
+
+import { Provider } from 'react-redux'
+import store from './redux/configureStore'
+
+import Config from "./components/Config";
+
+const drizzle = new Drizzle(drizzleOptions);
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
+    <DrizzleContext.Provider drizzle={drizzle}>
+        <Provider store={store}>
+            {/*<DrizzleContext.Consumer>*/}
+            {/*    {drizzleContext => {*/}
+            {/*        const {drizzle, drizzleState, initialized} = drizzleContext;*/}
+            {/*        if(!initialized) {*/}
+            {/*            return "Loading..."*/}
+            {/*        }*/}
+            {/*        return (*/}
+            {/*            <App drizzle={drizzle} drizzleState={drizzleState} />*/}
+            {/*        )*/}
+            {/*    }}*/}
+            {/*</DrizzleContext.Consumer>*/}
+            <Config drizzle={drizzle} />
+        </Provider>
+    </DrizzleContext.Provider>,
+    document.getElementById('root')
 );
-
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
