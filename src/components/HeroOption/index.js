@@ -1,14 +1,13 @@
 import React from "react";
 import './style.css';
 import {t} from '../../src/translate';
-import {setLang} from "../../redux/actions/lang";
 import {connect} from "react-redux";
 import {getImage} from "../Hero/Hero";
 import {capitalizeFirstLetter} from '../../src/helper'
 
 const HeroOption = (props) => {
-    if (Object.keys(props.heroData).length === 0) return '';
-    console.log(props.heroData)
+    // if (Object.keys(props.heroData).length === 0) return '';
+    // console.log(props.heroData)
 
     const renderText = () => {
         switch (props.heroData.info.heroClass) {
@@ -56,6 +55,4 @@ const mapStateToProps = (state) => {
     return { lang: state.lang}
 }
 
-const mapDispatchToProps = { setLang }
-
-export default connect(mapStateToProps, mapDispatchToProps)(HeroOption);
+export default connect(mapStateToProps)(HeroOption);
