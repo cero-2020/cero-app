@@ -1,5 +1,4 @@
 import React, {useState} from "react";
-import ReactDOM from 'react-dom';
 import './style.css';
 import {t} from '../../src/translate';
 import {setLang} from "../../redux/actions/lang";

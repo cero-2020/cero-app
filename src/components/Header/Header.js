@@ -8,6 +8,7 @@ import {t} from '../../src/translate';
 import {setLang} from "../../redux/actions/lang";
 import {connect} from "react-redux";
 import useModal from '../Modal/useModal';
+import ModalFight from "../Modal/ModalFight";
 
 const Header = (props) => {
     const {isShowing, toggle} = useModal();
@@ -48,6 +49,7 @@ const Header = (props) => {
                </div>
             </div>
         </header>
+        {/*<ModalFight isShowing={false} hide={toggle}/>*/}
         </>
 
     );

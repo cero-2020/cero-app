@@ -1,7 +1,6 @@
-import React,  { useState } from "react";
+import React from "react";
 import './style.css';
 import Header from '../Header/Header';
-import Hero from '../Hero/Hero';
 import {t} from '../../src/translate';
 import {setLang} from "../../redux/actions/lang";
 import {connect} from "react-redux";

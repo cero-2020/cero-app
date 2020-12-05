@@ -1,14 +1,12 @@
 import React from "react";
-import ReactDOM from 'react-dom';
 import './style.css';
 import {t} from '../../src/translate';
 import {setLang} from "../../redux/actions/lang";
 import {connect} from "react-redux";
-import HeroOption from '../HeroOption';
 
-const ModalSucces = (props) => props.isShowing ? ReactDOM.createPortal(
-    <React.Fragment>
-       <div className="modal modal-succes modal-omg">
+const ModalSorry = (props) => {
+    return (
+        <div className="modal modal-succes modal-omg">
         <div className="modal__content">
         <div className="modal__top">
             <div className="container">
@@ -31,8 +29,8 @@ const ModalSucces = (props) => props.isShowing ? ReactDOM.createPortal(
         </div>
         </div>
     </div>
-    </React.Fragment>, document.body
-) : null;
+    )
+}
 
 const mapStateToProps = (state) => {
     return { lang: state.lang}
@@ -40,4 +38,4 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = { setLang }
 
-export default connect(mapStateToProps, mapDispatchToProps)(ModalSucces);
+export default connect(mapStateToProps, mapDispatchToProps)(ModalSorry);
