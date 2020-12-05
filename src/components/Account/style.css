@@ -1,0 +1,19 @@
+.Account-subtitle {
+    font-weight: bold;
+    font-size: 19px;
+    line-height: 31px;    
+    color: #A8ACB5;
+}
+
+.Account-title {
+    font-weight: 800;
+    font-size: 38px;
+    line-height: 51px;
+    color: #FDFDFD;
+}
+.Account__container  {
+    padding-top: 90px;
+}
+.Account__container div {
+    margin-bottom: 40px;
+}

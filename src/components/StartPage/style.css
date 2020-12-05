@@ -1,0 +1,105 @@
+.top {
+    background-image: url('../src/images/bg.svg');
+    position: relative;
+    padding-bottom: 350px;
+    background-position: bottom;
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding-top: 180px;
+}
+.top  .container {
+    display: flex;
+    align-items: center;
+}
+.top__title {
+    font-weight: 800;
+    font-size: 146px;
+    line-height: 146px;
+    color: #FDFDFD;
+    margin-bottom: 15px;
+    max-width: 900px;
+}
+.grey-text {
+    font-weight: normal;
+    font-size: 19px;
+    line-height: 31px;
+    color: #A8ACB5; 
+    max-width: 600px;
+}
+.top__text {
+    margin-bottom: 40px;
+}
+.hero {
+    padding-top: 90px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+    padding-bottom: 140px;
+}
+.title-min  {
+    font-weight: 800;
+    font-size: 38px;
+    line-height: 51px;
+    color: #0C162D;
+    margin-bottom: 25px;
+}
+.hero__text {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 19px;
+    line-height: 31px;
+    max-width: 580px;
+    color: #A8ACB5;
+}
+.hero__block {
+    display: flex;
+    align-items: center;
+    margin-top: 45px;
+}
+.hero__block img {
+    width: calc(100% / 6);
+}
+.play  {
+    padding: 150px 0; 
+}
+.play .container {
+    display: flex;
+    align-items: center;
+}
+.play__info {
+    margin-left: 10vw;
+}
+.play__info ul li {
+    font-weight: 500;
+    font-size: 19px;
+    line-height: 50px;
+    color: #A8ACB5;
+    margin-bottom: 10px;
+    position: relative;
+    padding-left: 40px;
+}
+.play__info ul li::after {
+    content: '';
+    width: 20px;
+    height: 50px;
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    background-image: url('../src/images/star.svg');
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+ul {
+    list-style-type: none;
+}
+.play img {
+    width: 50%;
+}
+
+.HeroItems {
+    background: linear-gradient(180deg, #0E1A36 0%, #0F1B38 100%);
+    padding: 150px;
+}
+.HeroItems .container {
+    display: flex;
+}

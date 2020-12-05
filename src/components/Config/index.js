@@ -6,9 +6,14 @@ import { connect } from "react-redux";
 import {getWeb3} from "../../src/metamask";
 
 import Home from '../Home';
-import Example1 from "../Example1/Example1";
+import App from "../StartPage/StartPage";
+import HeroCreate from "../HeroCreate";
+import HeroList from "../HeroList/HeroList";
+import HeroStats from "../HeroStats/HeroStats";
+import Account from "../Account";
 
 const Config = (props) => {
+    
     useEffect(() => {
         // Set drizzle to store
         props.setDrizzle(props.drizzle);
@@ -34,8 +39,12 @@ const Config = (props) => {
     return (
         <Router>
             <Switch>
-                <Route path="/example1" component={Example1} />
-                <Route path="/" component={Home} />
+                <Route path="/account" component={Account} />
+                <Route path="/hero-list" component={HeroList} />
+                <Route path="/hero-stats" component={HeroStats} />
+                <Route path="/hero-create" component={HeroCreate} />
+                <Route path="/my-hero" component={HeroCreate} />
+                <Route path="/" component={App} />
             </Switch>
         </Router>
     );

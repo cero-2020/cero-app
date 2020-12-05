@@ -1,0 +1,92 @@
+@font-face {
+  font-family: 'Helvetica';
+  font-style: normal;
+  font-weight: 400;
+  src: url('./font/Helv.otf'); /* IE9 Compat Modes */
+  src: local('./font/Helv.otf'), local('Helv');
+}
+
+@font-face {
+  font-family: 'Helvetica-Bold';
+  font-style: normal;
+  font-weight: 400;
+  src: url('./font/Helv-bold.otf'); /* IE9 Compat Modes */
+  src: local('./font/Helv-bold.otf'), local('Helv-bold');
+}
+
+@font-face {
+  font-family: 'Gilroy-Regular';
+  font-style: normal;
+  font-weight: 400;
+  src: url('./font/Gilroy-Regular.woff'); /* IE9 Compat Modes */
+  src: local('./font/Gilroy-Regular.woff'), local('OpenSGilroy-Regularans');
+}
+
+@font-face {
+  font-family: 'Gilroy-Bold';
+  font-style: normal;
+  font-weight: 400;
+  src: url('./font/Gilroy-Bold.ttf'); /* IE9 Compat Modes */
+  src: local('./font/Gilroy-Bold.ttf'), local('Gilroy-Bold');
+}
+@font-face {
+  font-family: 'Gilroy-Medium';
+  font-style: normal;
+  font-weight: 400;
+  src: url('./font/Gilroy-Medium.woff'); /* IE9 Compat Modes */
+  src: local('./font/Gilroy-Medium.woff'), local('Gilroy-Medium');
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    font-family: "Helvetica";
+}
+.container {
+    margin: 0 auto;
+    width: 100%;
+    max-width: 1440px;
+}
+.main-btn {
+    background-color: #4374F1;
+    padding: 0 40px;
+    display: flex;
+    align-items: center;
+    height: 60px;
+    width: max-content;
+    outline: none;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 22px;
+    line-height: 16px;
+    color: #FDFDFD;
+    border-radius: 5px;
+}
+
+.main-btn img{
+    width: 30px;
+    height: 30px;
+    object-fit: contain;
+    margin-left: 5px;
+}
+
+::-webkit-scrollbar-track
+{
+  -webkit-box-shadow: inset 0 0 2px rgba(0,0,0,0.3);
+  border-radius: 10px;
+  background-color: #0E1A36;
+}
+
+::-webkit-scrollbar
+{
+  width: 12px;
+  background-color: #0E1A36;
+}
+::-webkit-scrollbar-thumb
+{
+  border-radius: 10px;
+  -webkit-box-shadow: inset 0 0 2px rgba(0,0,0,.3);
+  background-color: #848892;
+}

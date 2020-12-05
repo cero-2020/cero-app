@@ -1,0 +1,67 @@
+.HeroItem {
+    background: #FDFDFD;
+    box-shadow: 0px 8.67369px 79.3023px rgba(80, 77, 92, 0.1);
+    border-radius: 24.782px;
+    width: max-content; 
+    max-width: calc((100% - 180px) / 4);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 40px 0;
+    text-decoration: none;
+    flex-shrink: 0;
+}
+.HeroItem:not(:nth-child(4)) {
+    margin-right: 60px;
+}
+.HeroItem-name {
+    font-style: italic;
+    font-weight: normal;
+    font-size: 26px;
+    line-height: 112.23%;
+    color: #000000;
+}
+.HeroItem-subtitle {
+    font-weight: 300;
+    font-size: 18px;
+    line-height: 39px;
+    color: #646A79;
+}
+.HeroItem-class {
+    font-weight: normal;
+    font-size: 29.7383px;
+    line-height: 30px;
+    color: #000000;
+    
+}
+.HeroImg {
+    width: 230px;
+    height: 230px;
+    margin: 0 auto 65px;
+}
+.HeroItem__container {
+    padding: 0 30px 20px;
+    border-bottom: 1.2391px solid #D5D9E4;
+}
+.HeroItem-flex {
+    padding: 0 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.HeroItem-level {
+    font-weight: 800;
+    font-size: 56px;
+    line-height: 125px;
+    color: #F2994A;
+}
+.HeroItem-level-sub {
+    font-weight: 300;
+    font-size: 18px;
+    line-height: 39px;
+    color: #848892;
+}
+.HeroItem-class-block {
+    display: flex;
+    flex-direction: column;
+}

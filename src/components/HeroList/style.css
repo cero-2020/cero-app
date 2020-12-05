@@ -1,0 +1,36 @@
+.HeroList {
+    background: linear-gradient(180deg, #0E1A36 0%, #0F1B38 100%);
+    width: 100vw;
+    height: 100vh;
+    padding-top: 180px;
+    overflow-x: hidden;
+    padding-bottom: 250px;
+}
+.HeroList__top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+}
+.HeroList__top:after {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    background-image: url('../src/images/yellow-star.svg');
+    width: 260px;
+    height: 260px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+}
+.HeroList__top .grey-text {
+    max-width: 520px;
+    margin-right: 200px;
+}
+.HeroList__container {
+    display: flex;
+    align-items: center;
+    margin-top: 100px;
+}

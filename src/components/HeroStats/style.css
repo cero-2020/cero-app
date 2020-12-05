@@ -1,0 +1,76 @@
+.HeroStats .grey-text {
+    margin-right: 50px;
+}
+.HeroStats__container{
+    display: flex;
+    align-items: flex-start;
+    margin-top: 90px;
+}
+.HeroStats__stat {
+    margin-left: 60px;
+    width: 100%;
+}
+.HeroStats__stat  h2 {
+    font-weight: 800;
+    font-size: 38px;
+    line-height: 51px;
+    color: #FDFDFD;
+}
+.HeroStats__stat-top p {
+    font-weight: 300;
+    font-size: 18px;
+    line-height: 39px;
+    color: #FDFDFD;
+    margin-right: 60px;
+}
+.HeroStats__stat-top {
+    border-bottom: 1.2391px solid #D5D9E4;
+    display: flex;
+    align-items: center;
+    margin-bottom: 40px;
+}
+.HeroStats__stat-top p span {
+    font-weight: bold;
+    font-size: 56px;
+    line-height: 90px;
+    margin-right: 5px;
+}
+.HeroStats__stat-top:first-child p span {
+    color: #27AE60;
+}
+.HeroStats__stat-top p:nth-child(2) span {
+    color: #EB5757;
+}
+.result > div {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+}
+.result > div:first-child {
+    margin-bottom: 13px;
+}
+.result > div p {
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 24px;
+    color: #FDFDFD;
+    width: 15%;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+.result > div p:first-child {
+    width: 35%;
+}
+.result > div p:nth-child(4) {
+    width: 20%;
+}
+.result > div p:last-child {
+    width: 10%;
+}
+.result > div:first-child p {
+    font-size: 16px;
+    line-height: 23px;
+    color: #848892;
+}

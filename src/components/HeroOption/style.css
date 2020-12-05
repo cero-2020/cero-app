@@ -1,0 +1,68 @@
+.HeroStats .grey-text {
+    margin-right: 50px;
+}
+
+.HeroStats-item {
+    background: #FDFDFD;
+    box-shadow: 0px 8.67369px 79.3023px rgba(80, 77, 92, 0.1);
+    border-radius: 24.782px;
+    display: flex;
+    flex: 1;
+    min-width: 580px;  
+}
+
+.HeroStats-item .HeroItem-name {
+    max-width: 280px;
+}
+.HeroStats-item-left {
+    border-right: 1.2391px solid #D5D9E4;
+    display: flex;
+    flex-direction: column;
+    padding-top: 30px;
+    width: 60%;
+}
+.HeroStats-item-right {
+    width: 40%;
+}
+.HeroStats-item-right p {
+    padding: 0 30px;
+    font-weight: 300;
+    font-size: 18px;
+    line-height: 39px;
+    color: #646A79;
+}
+.HeroStats-item-right p span {
+    font-weight: 800;
+    font-size: 56px;
+    line-height: 90px;
+    padding-right: 10px;
+}
+.HeroStats-item-right p:not(:last-child) {
+    border-bottom: 1.2391px solid #D5D9E4;
+}
+.HeroStats-item-right p:first-child span {
+    color: #EB5757;
+}
+.HeroStats-item-right p:nth-child(2) span {
+    color: #0C162D;
+}
+.HeroStats-item-right p:nth-child(3) span {
+    color: #2F80ED;
+}
+.HeroStats-item-right p:nth-child(4) span {
+    color: #27AE60;
+}
+.HeroStats-item-right p:last-child span {
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 39px;
+    color: #848892;
+}
+.HeroStats-item-right p:last-child  {
+    font-size: 16px;
+    line-height: 23px;
+    color: #646A79;
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 30px;
+}
