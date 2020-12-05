@@ -2,7 +2,7 @@ RELEASE=$(shell TZ='Europe/Kiev' date +'%y%m%d.%H')
 GLOBIGNORE=.git
 release: deploy node_modules
 	yarn build
-	cd deploy && rm -v * && rm -fr deploy
+	cd deploy && rm -r -v *
 	cp -r build/. deploy
 	cd deploy &&\
  		git add -f . &&\
