@@ -47,7 +47,7 @@ const Header = (props) => {
                </div>
             </div>
         </header>
-        <Modal isShowingModalFigh={isShowing} toggle={toggle}/>
+        <Modal isShowingModalFightSelect={isShowing} toggle={toggle}/>
         </>
 
     );

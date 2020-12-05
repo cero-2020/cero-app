@@ -2,8 +2,8 @@ import React from "react";
 import './style.css';
 import {t} from '../../src/translate';
 import {connect} from "react-redux";
-import {getImage} from "../Hero/Hero";
 import {capitalizeFirstLetter} from '../../src/helper'
+import {HeroImage} from "../Hero/HeroImage";
 
 const HeroOption = (props) => {
     // if (Object.keys(props.heroData).length === 0) return '';
@@ -22,7 +22,7 @@ const HeroOption = (props) => {
     return (
         <div className="HeroStats-item">
             <div className="HeroStats-item-left">
-                <img src={getImage(props.heroData.info.heroClass)} className="HeroImg"/>
+                <img src={HeroImage(props.heroData.info.heroClass)} className="HeroImg"/>
                 <div className="HeroItem__container">
                     <p className="HeroItem-subtitle">{t(props.lang,'name')}</p>
                     <p className="HeroItem-name">{props.heroData.info.name}</p>
