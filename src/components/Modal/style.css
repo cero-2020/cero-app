@@ -1,6 +1,5 @@
 .modal {
     width: 100vw;
-    position: absolute;
     height: 100vh;
     position: fixed;
     top: 0;
@@ -9,8 +8,11 @@
     background: rgba(0, 0, 0, 0.5);
     backdrop-filter: blur(33px);
     overflow: auto;
-    padding-bottom: 280px;
-    padding-top: 180px;
+    /*padding-bottom: 100px;*/
+    /*padding-top: 100px;*/
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .modal__title {
     font-weight: 800;
@@ -27,7 +29,7 @@
     border-bottom: 1px solid rgba(253, 253, 253, 0.3);
     padding-bottom: 30px;
 
-    margin-bottom: 60px;
+    margin-bottom: 30px;
 }
 .modal__top .container {
     display: flex;
@@ -96,6 +98,8 @@
     bottom: 5px;
     left: 19%;
     z-index: -1;
+}
+.success_image {
     background-image: url('../src/images/success.png');
     background-size: contain;
     background-position: center;

@@ -14,18 +14,17 @@ const drizzle = new Drizzle(drizzleOptions);
 ReactDOM.render(
     <DrizzleContext.Provider drizzle={drizzle}>
         <Provider store={store}>
-            {/*<DrizzleContext.Consumer>*/}
-            {/*    {drizzleContext => {*/}
-            {/*        const {drizzle, drizzleState, initialized} = drizzleContext;*/}
-            {/*        if(!initialized) {*/}
-            {/*            return "Loading..."*/}
-            {/*        }*/}
-            {/*        return (*/}
-            {/*            <App drizzle={drizzle} drizzleState={drizzleState} />*/}
-            {/*        )*/}
-            {/*    }}*/}
-            {/*</DrizzleContext.Consumer>*/}
-            <Config drizzle={drizzle} />
+            <DrizzleContext.Consumer>
+                {drizzleContext => {
+                    const {drizzle, drizzleState, initialized} = drizzleContext;
+                    if(!initialized) {
+                        return "Loading..."
+                    }
+                    return (
+                        <Config drizzle={drizzle} />
+                    )
+                }}
+            </DrizzleContext.Consumer>
         </Provider>
     </DrizzleContext.Provider>,
     document.getElementById('root')

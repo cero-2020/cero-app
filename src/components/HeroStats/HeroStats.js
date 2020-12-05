@@ -1,13 +1,28 @@
-import React from "react";
+import {useEffect, useState} from "react";
 import './style.css';
 import Header from '../Header/Header';
 import {t} from '../../src/translate';
 import {setLang} from "../../redux/actions/lang";
 import {connect} from "react-redux";
 import HeroOption from "../HeroOption";
+import Hero from "../Hero/Hero";
 
 const HeroStats = (props) => {
-    console.log(props)
+    const [number] = useState(props.location.search.substring(1).split('=')[1])
+    const [heroData, setHeroData] = useState({})
+
+    useEffect(() => {
+        if (undefined === props.addressToHeroes.data[props.account.wallet]) return;
+
+
+        props.addressToHeroes.data[props.account.wallet].forEach((heroData) => {
+            if (heroData.number == number) {
+                setHeroData(heroData);
+            }
+        });
+    })
+
+
     return (
         <div>
             <Header/>
@@ -19,7 +34,7 @@ const HeroStats = (props) => {
                         <p className="grey-text">{t(props.lang,'Magician born in the school of magic. From birth he feels a great craving for everything magical and spiritual.')} </p>
                     </div>
                     <div className="HeroStats__container">
-                        <HeroOption/>
+                        <HeroOption heroData={heroData}/>
                         <div className="HeroStats__stat">
                             <h2>{t(props.lang,'Your stats')}</h2>
                             <div className="HeroStats__stat-top">
@@ -54,7 +69,11 @@ const HeroStats = (props) => {
 
 
 const mapStateToProps = (state) => {
-    return { lang: state.lang}
+    return {
+        lang: state.lang,
+        account: state.account,
+        addressToHeroes: state.addressToHeroes,
+    }
 }
 
 const mapDispatchToProps = { setLang }

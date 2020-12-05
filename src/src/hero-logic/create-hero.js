@@ -1,7 +1,8 @@
 import { getRandom } from "./hero-helper";
+import { createSoul } from "./create-soul";
 
 const name1 = ['Bomb', 'Chronic', 'Epic', 'Catastrophic', 'Amusing', 'Madden', 'Melancholic', 'Tattered', 'Crying', 'Compulsive', 'Thirsty', 'Exhausted', 'Throbbing', 'Obstinate', 'Disapproving'];
-const name2 = ['devil', 'hairline', 'kid', 'daddy', 'director', 'amanita', 'hump', 'mandarin', 'horse-breeder', 'smoke', 'bike', 'sock', 'nose', 'cock', 'drink'];
+const name2 = ['devil', 'hairline', 'kid', 'daddy', 'director', 'amanita', 'hump', 'mandarin', 'horse-breeder', 'smoke', 'bike', 'sock', 'nose', 'rooster', 'drink'];
 
 function createBase(level, st_base, pr_base, ag_base, ma_base, st_max, pr_max, ag_max, ma_max) {
     st_base = st_base * level;
@@ -116,14 +117,20 @@ export function heroEvolution(hero1, hero2) {
     return obj;
 }
 
-export function createRandomHero() {
+export function createRandomHero(level) {
+    let obj = {};
     let rand = getRandom(2);
+
     switch (rand) {
         case 0:
-            return createBaseThief();
+            obj = createBaseThief(level);
+            break;
         case 1:
-            return createBaseWizard();
+            obj = createBaseWizard(level);
+            break;
         default:
-            return createBaseWarrior();
+            obj = createBaseWarrior(level);
     }
+    obj.soul = createSoul(obj.name, obj.level, obj.heroClass, obj.strength, obj.protection, obj.agility, obj.magic);
+    return obj;
 }
