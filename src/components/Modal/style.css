@@ -164,6 +164,9 @@
 }
 .modal .container .HeroItem {
     opacity: 1;
+    margin: 0 50px 0 0;
+}
+.modal .container .HeroItem:last-child {
     margin: 0;
 }
 .modal-log ul {

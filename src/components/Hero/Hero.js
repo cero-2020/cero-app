@@ -4,7 +4,9 @@ import {Link} from "react-router-dom";
 import {t} from '../../src/translate';
 import {setLang} from "../../redux/actions/lang";
 import {connect} from "react-redux";
+import {capitalizeFirstLetter} from '../../src/helper'
 import {getRandom} from "../../src/hero-logic/hero-helper";
+import {setToCreateHero1, setToCreateHero2} from "../../redux/actions/heroToCreate";
 
 import wizard_1 from '../src/images/player_magic_1.svg';
 import wizard_2 from '../src/images/player_magic_2.svg';
@@ -52,32 +54,61 @@ export const getImage = (heroClass) => {
 
 const Hero = (props) => {
 
+    const content = () => {
+        return (
+            <>
+                <img src={getImage(props.heroData.info.heroClass)} className="HeroImg"/>
+                <div className="HeroItem__container">
+                    <p className="HeroItem-subtitle">{t(props.lang,'name')}</p>
+                    <p className="HeroItem-name">{props.heroData.info.name}</p>
+                </div>
+                <div className="HeroItem-flex">
+                    <p className="HeroItem-class-block">
+                        <span className="HeroItem-subtitle">{t(props.lang,'class')}</span>
+                        <span className="HeroItem-class">{capitalizeFirstLetter(props.heroData.info.heroClass)}</span>
+                    </p>
+                    <p>
+                        <span className="HeroItem-level">{props.heroData.info.level}</span>
+                        <span className="HeroItem-level-sub">{t(props.lang,'lvl')}</span>
+                    </p>
+                </div>
+            </>
+        )
+    }
 
-    return (
-        <Link to={"/hero-stats?number=" + props.heroData.number} className="HeroItem" key="key">
-            <img src={getImage(props.heroData.info.heroClass)} className="HeroImg"/>
-            <div className="HeroItem__container">
-                <p className="HeroItem-subtitle">{t(props.lang,'name')}</p>
-                <p className="HeroItem-name">{props.heroData.info.name}</p>
+    if ('createHero1' === props.action) {
+        return (
+            <div onClick={() => {props.setToCreateHero1(props.heroData); props.toggle();}} className="HeroItem">
+                {content()}
             </div>
-            <div className="HeroItem-flex">
-                <p className="HeroItem-class-block">
-                    <span className="HeroItem-subtitle">{t(props.lang,'class')}</span>
-                    <span className="HeroItem-class">{props.heroData.info.heroClass}</span>
-                </p>
-                <p>
-                    <span className="HeroItem-level">{props.heroData.info.level}</span>
-                    <span className="HeroItem-level-sub">{t(props.lang,'lvl')}</span>
-                </p>
+        )
+    } else if ('createHero2' === props.action) {
+        return (
+            <div onClick={() => {props.setToCreateHero2(props.heroData); props.toggle();}} className="HeroItem">
+                {content()}
             </div>
-        </Link>
-    );
+        )
+    } else if ('none' === props.action) {
+        return (
+            <div className="HeroItem">
+                {content()}
+            </div>
+        )
+    } else {
+        return (
+            <Link to={"/hero-stats?number=" + props.heroData.number} className="HeroItem" key="key">
+                {content()}
+            </Link>
+        );
+    }
 }
 
 const mapStateToProps = (state) => {
-    return { lang: state.lang}
+    return {
+        lang: state.lang,
+    }
 }
 
-const mapDispatchToProps = { setLang }
+const mapDispatchToProps = { setToCreateHero1, setToCreateHero2 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Hero);

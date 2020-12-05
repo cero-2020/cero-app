@@ -43,6 +43,4 @@ const mapStateToProps = (state) => {
     return { lang: state.lang}
 }
 
-const mapDispatchToProps = { setLang }
-
-export default connect(mapStateToProps, mapDispatchToProps)(ModalFight);
+export default connect(mapStateToProps)(ModalFight);

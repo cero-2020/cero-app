@@ -8,7 +8,6 @@ import ModalSorry from './ModalSorry';
 import ModalSuccess from './ModalSuccess';
 
 const Modal = (props) => {
-    console.log('1', props);
     return (
         <>
             { props.isShowingModalResult ? <ModalResult toggle={props.toggle} /> : null }

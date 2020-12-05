@@ -66,6 +66,7 @@ const Config = (props) => {
             let hero = await props.drizzleState.contracts.HeroCore.methods.getHeroInfo(data.heroNum[i]).call();
             hero.info = decodeSoul(hero.soul);
             hero.number = data.heroNum[i];
+            hero.owner = data.heroOwner[i];
 
             let account = data.heroOwner[i].toUpperCase();
 
