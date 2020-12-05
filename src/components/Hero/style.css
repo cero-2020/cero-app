@@ -12,9 +12,11 @@
     flex-shrink: 0;
     min-width: 315px;
 }
+
 .HeroItem:not(:nth-child(4)) {
     margin-right: 60px;
 }
+
 .HeroItem-name {
     font-style: italic;
     font-weight: normal;

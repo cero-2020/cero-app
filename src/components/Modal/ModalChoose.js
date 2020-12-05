@@ -6,6 +6,7 @@ import {connect} from "react-redux";
 import Hero from '../Hero/Hero';
 
 const ModalChoose = (props) => {
+    console.log(props)
     return (
         <div className="modal">
             <div className="modal__content">

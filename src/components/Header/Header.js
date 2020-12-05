@@ -36,7 +36,7 @@ const Header = (props) => {
                </div>
             </div>
         </header>
-        <Modal isShowing={!isShowing} hide={toggle}/>
+        <Modal isShowing={false} hide={toggle}/>
         </>
         
     );
