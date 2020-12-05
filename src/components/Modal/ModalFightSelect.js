@@ -1,14 +1,13 @@
 import React from "react";
-import ReactDOM from 'react-dom';
 import './style.css';
 import {t} from '../../src/translate';
 import {setLang} from "../../redux/actions/lang";
 import {connect} from "react-redux";
 import Hero from '../Hero/Hero';
 
-const ModalFightSelect = (props) => props.isShowing ? ReactDOM.createPortal(
-    <React.Fragment>
-       <div className="modal">
+const ModalFightSelect = (props) => {
+    return (
+        <div className="modal">
         <div className="modal__content">
         <div className="modal__top">
             <div className="container">
@@ -28,8 +27,8 @@ const ModalFightSelect = (props) => props.isShowing ? ReactDOM.createPortal(
         </div>
         </div>
     </div>
-    </React.Fragment>, document.body
-) : null;
+    )
+}
 
 const mapStateToProps = (state) => {
     return { lang: state.lang}
