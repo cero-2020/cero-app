@@ -53,42 +53,31 @@ const Config = (props) => {
     useEffect(async () => {
         if ((Date.now() - props.syncData.lastUpdate) < 10000 || null === props.drizzleState || null === props.account.wallet) return;
 
-        let heroNums = await getHeroesNumForOwner(props.account.wallet);
-        let heroes = await convertHeroNumsToHero(heroNums);
-        heroes = transformHeroesSoulToParams(heroes);
-        if (null !== heroes) {
-            props.setAddressToHeroes(props.account.wallet, heroes);
-        }
-    }, [props.drizzleState, props.syncData, props.account])
+        let addressToHeroes = await getAddressesToHeroes();
+        if (Object.keys(addressToHeroes).length !== 0) props.setAddressToHeroes(addressToHeroes);
 
-    async function getHeroesNumForOwner(wallet) {
+    })
+
+    async function getAddressesToHeroes() {
         let data = await props.drizzleState.contracts.HeroCore.methods.getHeroesOwner().call();
 
-        let heroesInOwner = [];
-        data.heroOwner.forEach((address, key) => {
-            if (address === wallet) {
-                heroesInOwner.push(key);
+        let addressToHeroesNum = [];
+        for (let i = 0; i < data.heroOwner.length; i++) {
+            let hero = await props.drizzleState.contracts.HeroCore.methods.getHeroInfo(data.heroNum[i]).call();
+            hero.info = decodeSoul(hero.soul);
+            hero.number = data.heroNum[i];
+
+            let account = data.heroOwner[i].toUpperCase();
+
+            if (undefined === addressToHeroesNum[account]) {
+                addressToHeroesNum[account] = [hero];
+            } else {
+                addressToHeroesNum[account].push(hero);
             }
-        });
-        return heroesInOwner;
-    }
-
-    async function convertHeroNumsToHero(heroNums) {
-        let heroes = [];
-        for (let i = 0; i < heroNums.length; i++) {
-            let hero = await props.drizzleState.contracts.HeroCore.methods.getHeroInfo(heroNums[i]).call();
-            heroes.push(hero);
         }
-        return heroes;
+        return addressToHeroesNum;
     }
 
-    function transformHeroesSoulToParams(heroes) {
-        heroes.forEach((hero, key) => {
-            heroes[key].info = decodeSoul(hero.soul);
-            heroes[key].number = key;
-        });
-        return heroes;
-    }
 
     return (
         <Router>

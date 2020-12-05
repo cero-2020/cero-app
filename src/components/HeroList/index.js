@@ -7,14 +7,13 @@ import {createRandomHero} from "../../src/hero-logic/create-hero";
 
 const HeroList = (props) => {
     const renderHeroes = () => {
-        if (undefined === props.addressToHeroes.data[props.account.wallet]) return;
-
-        if (props.addressToHeroes.data[props.account.wallet].length === 0) {
+        let heroes = props.addressToHeroes[props.account.walletFormatted];
+        if (undefined === heroes || 0 === heroes.length) {
             return (
                 <p className={'main-btn header-btn'} onClick={() => createHeroLoc()}>{t(props.lang, 'Get your first Cero!')}</p>
             )
         } else {
-            return props.addressToHeroes.data[props.account.wallet].map((heroData, key) => {
+            return heroes.map((heroData, key) => {
                 return (<Hero key={ key } heroData={ heroData }/>);
             });
         }
@@ -38,6 +37,7 @@ const HeroList = (props) => {
                             <p className="grey-text">{t(props.lang,'Here you can find a list of your heroes. Each of them has unique characteristics and capabilities. Fight against other players and unlock new heroes')}</p>
                         </div>
                         <div className="HeroList__container">
+                            <p className={'main-btn header-btn'} onClick={() => createHeroLoc()}>{t(props.lang, 'Get your first Cero!')}</p>
                             {renderHeroes()}
                         </div>
                     </div>

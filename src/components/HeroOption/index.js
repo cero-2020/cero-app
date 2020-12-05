@@ -4,6 +4,7 @@ import {t} from '../../src/translate';
 import {setLang} from "../../redux/actions/lang";
 import {connect} from "react-redux";
 import {getImage} from "../Hero/Hero";
+import {capitalizeFirstLetter} from '../../src/helper'
 
 const HeroOption = (props) => {
     if (Object.keys(props.heroData).length === 0) return '';
@@ -30,7 +31,7 @@ const HeroOption = (props) => {
                 <div className="HeroItem-flex">
                     <p className="HeroItem-class-block">
                         <span className="HeroItem-subtitle">{t(props.lang,'class')}</span>
-                        <span className="HeroItem-class">{props.heroData.info.heroClass}</span>
+                        <span className="HeroItem-class">{capitalizeFirstLetter(props.heroData.info.heroClass)}</span>
                     </p>
                     <p>
                         <span className="HeroItem-level">{props.heroData.info.level}</span>

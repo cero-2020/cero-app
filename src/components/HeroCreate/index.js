@@ -2,13 +2,13 @@ import React from "react";
 import './style.css';
 import Header from '../Header/Header';
 import {t} from '../../src/translate';
-import {setLang} from "../../redux/actions/lang";
 import {connect} from "react-redux";
 import Modal from '../Modal';
 import useModal from '../Modal/useModal';
 
 const HeroCreate = (props) => {
     const {isShowing, toggle} = useModal();
+
     return (
         <>
             <Header/>
@@ -32,7 +32,7 @@ const HeroCreate = (props) => {
                 </div>
             </div>
             </div>
-            <Modal isShowing={isShowing} hide={toggle}/>
+            <Modal isShowingChooseHero={isShowing} toggle={toggle}/>
       </>
     );
 }
@@ -41,6 +41,4 @@ const mapStateToProps = (state) => {
     return { lang: state.lang}
 }
 
-const mapDispatchToProps = { setLang }
-
-export default connect(mapStateToProps, mapDispatchToProps)(HeroCreate);
+export default connect(mapStateToProps)(HeroCreate);

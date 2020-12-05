@@ -1,6 +1,5 @@
-export const setAddressToHeroes = (address, heroes) => ({
+export const setAddressToHeroes = (data) => ({
   type: 'SET_ADDRESS_TO_HEROES',
-  address: address,
-  heroes: heroes,
+  payload: data,
 });
 

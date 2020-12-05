@@ -1,5 +1,6 @@
 let data = {
   wallet: null,
+  walletFormatted: null,
   balance: null,
 };
 
@@ -9,6 +10,7 @@ export default function user(state = data, action) {
       return {
         ...state,
         wallet: action.payload,
+        walletFormatted: action.payload.toUpperCase(),
       };
     case 'SET_ACCOUNT_BALANCE':
       return {

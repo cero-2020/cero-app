@@ -5,23 +5,23 @@ import {t} from '../../src/translate';
 import {setLang} from "../../redux/actions/lang";
 import {connect} from "react-redux";
 import HeroOption from "../HeroOption";
-import Hero from "../Hero/Hero";
 
 const HeroStats = (props) => {
     const [number] = useState(props.location.search.substring(1).split('=')[1])
     const [heroData, setHeroData] = useState({})
 
     useEffect(() => {
-        if (undefined === props.addressToHeroes.data[props.account.wallet]) return;
-
-
-        props.addressToHeroes.data[props.account.wallet].forEach((heroData) => {
-            if (heroData.number == number) {
-                setHeroData(heroData);
-            }
-        });
+        let heroes = props.addressToHeroes[props.account.walletFormatted];
+        if (undefined === heroes || 0 === heroes.length) {
+            return ''
+        } else {
+            heroes.forEach((heroData) => {
+                if (heroData.number == number) {
+                    setHeroData(heroData);
+                }
+            });
+        }
     })
-
 
     return (
         <div>
@@ -38,25 +38,25 @@ const HeroStats = (props) => {
                         <div className="HeroStats__stat">
                             <h2>{t(props.lang,'Your stats')}</h2>
                             <div className="HeroStats__stat-top">
-                                <p><span>2</span>{t(props.lang,'Win')}</p>
+                                <p><span>0</span>{t(props.lang,'Win')}</p>
                                 <p><span>0</span>{t(props.lang,'Defeat')}</p>
                             </div>
-                            <div className="result">
-                                <div>
-                                    <p>{t(props.lang,'Name')}</p>
-                                    <p>{t(props.lang,'Date & Time')}</p>
-                                    <p>{t(props.lang,'Cero ID')}</p>
-                                    <p>{t(props.lang,'Wallet')}</p>
-                                    <p>{t(props.lang,'Result')}</p>
-                                </div>
-                                <div>
-                                    <p>{t(props.lang,'HELLO MR ANDERS HOW ARE YOU')}</p>
-                                    <p>{t(props.lang,'Dec 12, 19:23')}</p>
-                                    <p>232</p>
-                                    <p>20xaB367</p>
-                                    <p>{t(props.lang,'Result')}</p>
-                                </div>
-                            </div>
+                            {/*<div className="result">*/}
+                            {/*    <div>*/}
+                            {/*        <p>{t(props.lang,'Name')}</p>*/}
+                            {/*        <p>{t(props.lang,'Date & Time')}</p>*/}
+                            {/*        <p>{t(props.lang,'Cero ID')}</p>*/}
+                            {/*        <p>{t(props.lang,'Wallet')}</p>*/}
+                            {/*        <p>{t(props.lang,'Result')}</p>*/}
+                            {/*    </div>*/}
+                            {/*    <div>*/}
+                            {/*        <p>{t(props.lang,'HELLO MR ANDERS HOW ARE YOU')}</p>*/}
+                            {/*        <p>{t(props.lang,'Dec 12, 19:23')}</p>*/}
+                            {/*        <p>232</p>*/}
+                            {/*        <p>20xaB367</p>*/}
+                            {/*        <p>{t(props.lang,'Result')}</p>*/}
+                            {/*    </div>*/}
+                            {/*</div>*/}
 
                         </div>
                     </div>
