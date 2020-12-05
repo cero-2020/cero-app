@@ -24,7 +24,7 @@ const Account = (props) => {
                        </div>
                        <div>
                             <p className="Account-subtitle">{t(props.lang,'Balance')}</p>
-                            <p className="Account-title">{props.account.balance}</p>
+                            <p className="Account-title">{Math.round(props.account.balance / 100000000000000) / 10000} ETH</p>
                        </div>
                     </div>
                 </div>
