@@ -1,0 +1,178 @@
+.modal {
+    width: 100vw;
+    position: absolute;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 99999;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(33px);
+    overflow: auto;
+    padding-bottom: 280px;
+    padding-top: 180px;
+}
+.modal__title {
+    font-weight: 800;
+    font-size: 38px;
+    line-height: 51px;
+    color: #FDFDFD;
+    
+}
+.modal__hero .container {
+    display: flex;
+    align-items: center;
+}
+.modal__top {
+    border-bottom: 1px solid rgba(253, 253, 253, 0.3);
+    padding-bottom: 30px;
+
+    margin-bottom: 60px;
+}
+.modal__top .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.modal .HeroItem {
+    opacity: 0.3;
+    transition: 0.5s;
+}
+.modal .HeroItem:hover {
+    opacity: 1;
+}
+.modal .main-btn {
+    margin: 60px auto 0;
+    font-size: 18px;
+    line-height: 16px;
+}
+
+.modal-succes .modal__top .container {
+    flex-direction: column;
+}
+.modal-succes .modal__top {
+    border: none;
+}
+.modal-succes .modal__hero .container,
+.modal-fight .modal__hero .container  {
+    justify-content: center;
+    margin-bottom: 60px;
+}
+.modal__title.modal__big {
+    font-weight: 800;
+    font-size: 117px;
+    line-height: 117px;
+    color: #FDFDFD;
+}
+.modal__text {
+    font-weight: normal;
+    font-size: 19px;
+    line-height: 31px;
+    color: #A8ACB5;
+    max-width: 600px;
+    text-align: center;
+}
+.modal__text span {
+    color: #F2994A;
+}
+.modal .modal__flex .main-btn {
+    margin:  0 0 0 20px;
+    height: 55px;
+}
+.modal__flex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.modal-succes .modal__content {
+    position: relative;
+    z-index: 3;
+}
+.modal-succes .modal__content::after {
+    content: '';
+    width: 1000px;
+    height: 500px;
+    position: absolute;
+    bottom: 5px;
+    left: 19%;
+    z-index: -1;
+    background-image: url('../src/images/success.png');
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.modal-succes.modal-omg .modal__content::after {
+    content: unset;
+}
+.modal__hero-vs {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin:  0 75px;
+}
+.modal__hero-vs p {
+    font-weight: 800;
+    font-size: 38px;
+    line-height: 51px;
+    color: #FDFDFD;
+    font-family: 'Gilroy-Bold';
+}
+.modal__hero-vs .win  {
+    color: #29E378;
+}
+.modal__hero-vs .lose  {
+    color: #EB5757;
+}
+.modal-fight .modal__hero .container {
+    justify-content: center;
+}
+
+.modal__win-text,
+.modal__lose-text {
+    font-weight: normal;
+    font-size: 19px;
+    line-height: 31px;
+    color: #A8ACB5;
+    margin: 50px auto;
+    max-width: 680px;
+    text-align: center;
+}
+.modal__lose-text span {
+    color: #EB5757;
+    padding:  0 5px;
+    
+}
+.modal__win-text span {
+    color: #29E378;
+    padding:  0 5px;
+}
+
+.modal-log__title {
+    font-weight: 800;
+    font-size: 38px;
+    line-height: 51px;
+    color: #FDFDFD;
+    margin-bottom: 20px;
+}
+.modal-fight  .modal__content {
+    max-width: 900px;
+    margin:  0 auto;
+}
+.modal .container .HeroItem {
+    opacity: 1;
+    margin: 0;
+}
+.modal-log ul {
+    max-height: 500px;
+    overflow: auto;
+}
+.modal-log ul li {
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 23px;
+    color: #A8ACB5;
+    padding: 20px 0;
+}
+.modal-log ul li:not(:last-child) {
+    border-bottom: 1px solid rgba(253, 253, 253, 0.3);
+}

@@ -1,0 +1,49 @@
+import React from "react";
+import ReactDOM from 'react-dom';
+import './style.css';
+import {t} from '../../src/translate';
+import {setLang} from "../../redux/actions/lang";
+import {connect} from "react-redux";
+import HeroOption from '../HeroOption';
+
+const ModalFight = (props) => props.isShowing ? ReactDOM.createPortal(
+    <React.Fragment>
+       <div className="modal modal-fight">
+        <div className="modal__content">
+        <div className="modal__top">
+            <div className="container">
+                <h3 className="modal__title">{t(props.lang,'Choice your cero')}</h3>
+                <p className="btn" onClick={props.hide}>{t(props.lang,'close')} </p>
+            </div>
+        </div>
+        <div className="modal__hero">
+            <div className="container">
+                <HeroOption />
+                    <div className="modal__hero-vs">
+                        <img  src={`${process.env.PUBLIC_URL}/images/fight.svg`} />
+                        <p>{t(props.lang,'VS')}</p>
+                    </div>
+                <HeroOption />
+             </div>
+        </div>
+        <div className="modal__flex">
+            <p className="btn"  onClick={props.hide} >
+                {t(props.lang, 'Back')}
+            </p>
+            <p className="main-btn"  onClick={props.hide} >
+                {t(props.lang, 'Start fight')}
+                <img  src={`${process.env.PUBLIC_URL}/images/fight.svg`} />
+            </p>
+        </div>
+        </div>
+    </div>
+    </React.Fragment>, document.body
+) : null;
+
+const mapStateToProps = (state) => {
+    return { lang: state.lang}
+}
+
+const mapDispatchToProps = { setLang }
+
+export default connect(mapStateToProps, mapDispatchToProps)(ModalFight);

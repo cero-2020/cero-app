@@ -10,6 +10,7 @@
     padding: 40px 0;
     text-decoration: none;
     flex-shrink: 0;
+    min-width: 315px;
 }
 .HeroItem:not(:nth-child(4)) {
     margin-right: 60px;
@@ -26,6 +27,7 @@
     font-size: 18px;
     line-height: 39px;
     color: #646A79;
+    font-family: 'Gilroy-Light';
 }
 .HeroItem-class {
     font-weight: normal;
@@ -44,7 +46,7 @@
     border-bottom: 1.2391px solid #D5D9E4;
 }
 .HeroItem-flex {
-    padding: 0 30px;
+    padding: 10px 30px 0;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -52,7 +54,7 @@
 .HeroItem-level {
     font-weight: 800;
     font-size: 56px;
-    line-height: 125px;
+    line-height: 60px;
     color: #F2994A;
 }
 .HeroItem-level-sub {
@@ -60,6 +62,8 @@
     font-size: 18px;
     line-height: 39px;
     color: #848892;
+    padding-left: 5px;
+    font-family: 'Gilroy-Light';
 }
 .HeroItem-class-block {
     display: flex;

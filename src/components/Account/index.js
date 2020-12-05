@@ -1,12 +1,12 @@
 import React from "react";
 import './style.css';
 import Header from '../Header/Header';
-import Hero from '../Hero/Hero';
 import {t} from '../../src/translate';
 import {setLang} from "../../redux/actions/lang";
 import {connect} from "react-redux";
 
 const Account = (props) => {
+    console.log(props)
     return (
         <div>
             <Header/>
@@ -19,12 +19,12 @@ const Account = (props) => {
                     </div>
                     <div className="Account__container">
                        <div>
-                           <p className="Account-subtitle">Wallet</p>
-                           <p className="Account-title">0xaB3679B6AFEbc6fD7BCDe387fA391F576e86f990</p>
+                           <p className="Account-subtitle">{t(props.lang,'Wallet')}</p>
+                           <p className="Account-title">{props.account.wallet}</p>
                        </div>
                        <div>
-                            <p className="Account-subtitle">Balance</p>
-                            <p className="Account-title">0.1486 ETH</p>
+                            <p className="Account-subtitle">{t(props.lang,'Balance')}</p>
+                            <p className="Account-title">{props.account.balance}</p>
                        </div>
                     </div>
                 </div>
@@ -33,9 +33,11 @@ const Account = (props) => {
         </div>
     );
 }
-
 const mapStateToProps = (state) => {
-    return { lang: state.lang}
+    return { 
+        lang: state.lang, 
+        account: state.account
+    }
 }
 
 const mapDispatchToProps = { setLang }

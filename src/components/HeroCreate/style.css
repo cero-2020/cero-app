@@ -1,3 +1,45 @@
-.HeroCreate {
+.create-blolck {
+    background: rgba(244, 247, 249, 0.1);
+    border: 2px dashed #B5BCD0;
+    border-radius: 20px;
+    width: 315px;
+    height: 558px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    font-size: 19px;
+    line-height: 31px;
+    color: #A8ACB5;
+    transition: all 0.5s;
+    cursor: pointer;
+}
+.create-blolck.error {
+    background: rgba(252, 49, 49, 0.1);
+    border: 2px dashed #FC3131;
+}
+.create-blolck:hover {
+    background: #F4F7F9;
+}
+.plus {
+    background: #2F80ED;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin:  0 30px;
+    border-radius: 50%;
+}
 
+.HeroCreate .HeroList__top .grey-text{
+    margin-right: 50px;
+}
+
+.create-btn {
+    opacity: 0.3;
+    font-size: 19px;
+    line-height: 31px;
+    margin-left: 30px;
+    cursor: pointer;
 }

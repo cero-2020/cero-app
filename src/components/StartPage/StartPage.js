@@ -8,7 +8,9 @@ import {t} from '../../src/translate';
 import {setLang} from "../../redux/actions/lang";
 import {connect} from "react-redux";
 import Hero from '../Hero/Hero';
-
+import '../src/font/Gilroy-Regular.woff'; 
+import '../src/font/Gilroy-Bold.woff'; 
+import '../src/font/Helvetica.woff'; 
 const StartPage = (props) => {
     return (
         <div className="">
@@ -22,7 +24,7 @@ const StartPage = (props) => {
                             <img src={Fox} alt={Fox}/>
                         </Link></p>
                     </div>
-                    <img src={require('../src/images/book.png')}/>
+                    <img  src={`${process.env.PUBLIC_URL}/images/book.png`} />
                 </div>
             </section>
 
@@ -31,18 +33,14 @@ const StartPage = (props) => {
                     <h2 className="title-min">{t(props.lang,  'Play, upgrade, trade, and win new heroes')}</h2>
                     <p className="hero__text">{t(props.lang,'Each cero has unique abilities. Unlock new ceroes by defeating or improving ceroes of the same level.')}</p>
                     <div className="hero__block">
-                        <img src={require('../src/images/player1.svg')}/>
-                        <img src={require('../src/images/player2.svg')}/>
-                        <img src={require('../src/images/player3.svg')}/>
-                        <img src={require('../src/images/player4.svg')}/>
-                        <img src={require('../src/images/player5.svg')}/>
-                        <img src={require('../src/images/player6.svg')}/>
+                        <img  src={`${process.env.PUBLIC_URL}/images/player3.svg`} />
+                        <img  src={`${process.env.PUBLIC_URL}/images/player1.svg`} />
                     </div>
                 </div>
             </section>
             <section className="play">
                 <div className="container">
-                    <img src={require('../src/images/hat.svg')}/>
+                    <img  src={`${process.env.PUBLIC_URL}/images/hat.svg`} />
                     <div className="play__info">
                         <h2 className="title-min">{t(props.lang, 'Play, upgrade, trade, and win')}</h2>
                         <ul>

@@ -103,3 +103,8 @@ ul {
 .HeroItems .container {
     display: flex;
 }
+.top .container > img {
+    width: 30%;
+    position: relative;
+    top: 120px;
+}

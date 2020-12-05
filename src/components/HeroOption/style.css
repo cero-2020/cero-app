@@ -8,7 +8,9 @@
     border-radius: 24.782px;
     display: flex;
     flex: 1;
-    min-width: 580px;  
+    width: 580px; 
+    min-width: 580px; 
+    max-width: 580px;   
 }
 
 .HeroStats-item .HeroItem-name {
@@ -30,11 +32,13 @@
     font-size: 18px;
     line-height: 39px;
     color: #646A79;
+    font-family: 'Gilroy-Regular';
 }
 .HeroStats-item-right p span {
     font-weight: 800;
     font-size: 56px;
     line-height: 90px;
+    font-family: 'Helvetica';
     padding-right: 10px;
 }
 .HeroStats-item-right p:not(:last-child) {
@@ -57,6 +61,7 @@
     font-size: 16px;
     line-height: 39px;
     color: #848892;
+    font-family: 'Gilroy-Regular';
 }
 .HeroStats-item-right p:last-child  {
     font-size: 16px;
@@ -65,4 +70,5 @@
     display: flex;
     flex-direction: column;
     padding-bottom: 30px;
+    font-family: 'Helvetica';
 }

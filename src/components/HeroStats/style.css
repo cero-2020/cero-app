@@ -29,13 +29,18 @@
     align-items: center;
     margin-bottom: 40px;
 }
+.HeroStats__stat-top p  {
+    font-family: 'Gilroy-Light';
+}
 .HeroStats__stat-top p span {
     font-weight: bold;
     font-size: 56px;
     line-height: 90px;
     margin-right: 5px;
+    font-family: 'Helvetica';
+    padding-right: 5px;
 }
-.HeroStats__stat-top:first-child p span {
+.HeroStats__stat-top p:first-child span {
     color: #27AE60;
 }
 .HeroStats__stat-top p:nth-child(2) span {
@@ -50,8 +55,8 @@
 .result > div:first-child {
     margin-bottom: 13px;
 }
+
 .result > div p {
-    font-weight: 300;
     font-size: 14px;
     line-height: 24px;
     color: #FDFDFD;
@@ -69,8 +74,16 @@
 .result > div p:last-child {
     width: 10%;
 }
+
+.defeat {
+    color: #EB5757;
+}
+.win {
+    color: #27AE60;
+}
 .result > div:first-child p {
     font-size: 16px;
     line-height: 23px;
     color: #848892;
+    font-family: 'Gilroy-Regular';
 }

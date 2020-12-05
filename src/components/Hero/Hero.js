@@ -12,18 +12,12 @@ const heroes = [
         class: 'Warrior',
         level: '1',
         img: '../src/images/hero.svg'
-    },
-    {
-        name: 'Anderson',
-        class: 'Warrior',
-        level: '1',
-        img: '../src/images/hero.svg'
     }
 ]
 const Hero = (props) => {
     return heroes.map((obj, key) => {
         return (
-        <Link to="/hero-stats" params={{test: 'test'}} className="HeroItem" key="key">
+        <Link to="/hero-stats" className="HeroItem" key="key">
             <img src={HeroImg} className="HeroImg"/>
             <div className="HeroItem__container">
                 <p className="HeroItem-subtitle">{t(props.lang,'name')}</p>
