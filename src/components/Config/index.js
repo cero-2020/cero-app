@@ -32,6 +32,7 @@ const Config = (props) => {
         });
     }, [])
 
+    //TODO: if METAMASK NOT EXIST
     window.ethereum.on('accountsChanged', function (accounts) {
         props.setAccountWallet(accounts[0])
     })
