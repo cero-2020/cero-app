@@ -6,6 +6,11 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 In the project directory, you can run:
 
+
+### `make release`
+
+Release on [cero-2020.github.io](https://cero-2020.github.io)
+
 ### `yarn start`
 
 Runs the app in the development mode.\
