@@ -6,7 +6,7 @@ export const drizzleOptions = {
     contracts: [
         {
             contractName: 'HeroCore',
-            web3Contract: new web3.eth.Contract(abiJsonInterface, '0x5ba0efd60dc1f710cc6c2aa6a69cb9bc1bdfe03d')
+            web3Contract: new web3.eth.Contract(abiJsonInterface, '0x663bdd053eec756f1e456a6dfcd10d5af86c229e')
         }
     ],
     web3: {

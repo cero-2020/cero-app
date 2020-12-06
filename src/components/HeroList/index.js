@@ -56,9 +56,9 @@ const HeroList = (props) => {
                             {renderHeroes()}
                         </div>
 
-                        <div className="HeroList__action">
-                            <a className={'main-btn header-btn'} onClick={() => createHeroLoc()}>{t(props.lang, 'Birth of a new Cero!')}</a>
-                        </div>
+                        {/*<div className="HeroList__action">*/}
+                        {/*    <a className={'main-btn header-btn'} onClick={() => createHeroLoc()}>{t(props.lang, 'Birth of a new Cero!')}</a>*/}
+                        {/*</div>*/}
                     </div>
                 </div>
             </div>
