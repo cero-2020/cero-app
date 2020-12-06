@@ -7,6 +7,7 @@ import {useEffect, useState} from 'react';
 import Modal from "../Modal";
 import { setLang } from "../../redux/actions/lang";
 import Logo from '../src/images/cero.svg';
+import Btn from '../src/images/fight.svg';
 
 const Header = (props) => {
     const [activeModal, setActiveModal] = useState(null);
@@ -36,7 +37,7 @@ const Header = (props) => {
         let heroes = props.addressToHeroes[props.account.walletFormatted] || [];
         if (null === props.account.wallet || 0 === heroes.length) return '';
         return (
-            <div onClick={() => toggleActiveModal('fight-select')} className="main-btn header-btn">{t(props.lang,'Start fight')}</div>
+            <div onClick={() => toggleActiveModal('fight-select')} className="main-btn header-btn">{t(props.lang,'Start fight')} <img src={Btn}/></div>
         );
     };
 
