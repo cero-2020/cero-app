@@ -16,6 +16,17 @@ import {setAccountBalance, setAccountWallet} from "../../redux/actions/account";
 const StartPage = (props) => {
     const [showInfo, setSHowInfo] = useState(false);
 
+    const connectMetamaskBtn = () => {
+        if (null !== props.account.wallet) return '';
+
+        return (<div>
+            <div className="main-btn" onClick={() => connectMetamask()}>
+                {t(props.lang, 'Connect to')}
+                <img src={Fox} alt={Fox}/>
+            </div>
+        </div>)
+    }
+
     const connectMetamask = () => {
         // Set account to store
         const web3 = getWeb3();
@@ -40,13 +51,8 @@ const StartPage = (props) => {
                 <div className="container">
                     <div >
                         <h1 className="top__title">{t(props.lang, 'Crypto hero this is cero')}</h1>
-                        <p className="grey-text top__text">{t(props.lang,'Magician born in the school of magic. From birth he feels a great craving for everything magical and spiritual.')}</p>
-                        <div>
-                            <div className="main-btn" onClick={() => connectMetamask()}>
-                                {t(props.lang, 'Connect to')}
-                                <img src={Fox} alt={Fox}/>
-                            </div>
-                        </div>
+                        <p className="grey-text top__text">{t(props.lang,'A game in which data is stored in a blockchain')}</p>
+                        {connectMetamaskBtn()}
                     </div>
                     <img  src={`${process.env.PUBLIC_URL}/images/book.png`} />
                 </div>
