@@ -14,12 +14,18 @@
     justify-content: center;
     align-items: center;
 }
+
+.modal.modal-result {
+    align-items: baseline;
+    padding-bottom: 100px;
+    padding-top: 100px;
+}
 .modal__title {
     font-weight: 800;
     font-size: 38px;
     line-height: 51px;
     color: #FDFDFD;
-    
+    min-width: 800px;
 }
 .modal__hero .container {
     display: flex;
@@ -47,6 +53,11 @@
     margin: 60px auto 0;
     font-size: 18px;
     line-height: 16px;
+    opacity: 0.3;
+}
+
+.modal .main-btn.active {
+    opacity: 1;
 }
 
 .modal-succes .modal__top .container {
@@ -157,16 +168,17 @@
     line-height: 51px;
     color: #FDFDFD;
     margin-bottom: 20px;
+    margin-top: 50px;
 }
 .modal-fight  .modal__content {
     max-width: 900px;
     margin:  0 auto;
 }
-.modal .container .HeroItem {
+.modal .container .HeroItem, .modal__hero .HeroContainer {
     opacity: 1;
     margin: 0 50px 0 0;
 }
-.modal .container .HeroItem:last-child {
+.modal .container .HeroItem:last-child, .modal__hero .HeroContainer:last-child, .modal.modal-result .container .HeroItem {
     margin: 0;
 }
 .modal-log ul {

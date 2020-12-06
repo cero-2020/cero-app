@@ -2,7 +2,7 @@ import { getRandom } from "./hero-helper";
 import { createSoul } from "./create-soul";
 
 const name1 = ['Bomb', 'Chronic', 'Epic', 'Catastrophic', 'Amusing', 'Madden', 'Melancholic', 'Tattered', 'Crying', 'Compulsive', 'Thirsty', 'Exhausted', 'Throbbing', 'Obstinate', 'Disapproving'];
-const name2 = ['devil', 'hairline', 'kid', 'daddy', 'director', 'amanita', 'hump', 'mandarin', 'horse-breeder', 'smoke', 'bike', 'sock', 'nose', 'rooster', 'drink'];
+const name2 = ['devil', 'hairline', 'kid', 'daddy', 'director', 'amanita', 'hump', 'mandarin', 'horsebreeder', 'smoke', 'bike', 'sock', 'nose', 'rooster', 'drink'];
 
 function createBase(level, st_base, pr_base, ag_base, ma_base, st_max, pr_max, ag_max, ma_max) {
     st_base = st_base * level;
@@ -50,7 +50,7 @@ export function createBaseWizard(level) {
     return obj;
 }
 
-function heroParamsToNum(hero) {
+export function heroParamsToNum(hero) {
     hero.level = Number(hero.level);
     hero.strength = Number(hero.strength);
     hero.protection = Number(hero.protection);
@@ -58,6 +58,7 @@ function heroParamsToNum(hero) {
     hero.magic = Number(hero.magic);
     return hero;
 }
+
 function recalculateBasePoint(hero1, hero2) {
     let st_base = Math.ceil((hero1.strength + hero2.strength) / (2 * hero1.level));
     st_base = getRandom(101) > 50 ? st_base + 1 : st_base;

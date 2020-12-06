@@ -1,4 +1,5 @@
 import { getRandom, calculateHP } from "./hero-helper";
+import { heroParamsToNum } from './create-hero'
 
 // let hero = {
 //     name: '',
@@ -41,6 +42,9 @@ function fightProcess(hero1, hero2, logger) {
 }
 
 export function fight(hero1, hero2) {
+    hero1 = heroParamsToNum(hero1);
+    hero2 = heroParamsToNum(hero2);
+
     hero1.hp = calculateHP(hero1.level, hero1.heroClass);
     hero2.hp = calculateHP(hero2.level, hero2.heroClass);
     hero1.hpBase = calculateHP(hero1.level, hero1.heroClass);

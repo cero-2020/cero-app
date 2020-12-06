@@ -64,6 +64,7 @@ const Config = (props) => {
         let addressToHeroesNum = [];
         for (let i = 0; i < data.heroOwner.length; i++) {
             let hero = await props.drizzleState.contracts.HeroCore.methods.getHeroInfo(data.heroNum[i]).call();
+            if (false === hero.isExist) continue;
             hero.info = decodeSoul(hero.soul);
             hero.number = data.heroNum[i];
             hero.owner = data.heroOwner[i];

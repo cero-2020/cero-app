@@ -29,7 +29,7 @@ const ModalChoose = (props) => {
             <div className="modal__content">
             <div className="modal__top">
                 <div className="container">
-                    <h3 className="modal__title">{t(props.lang,'Choice your Cero')}</h3>
+                    <h3 className="modal__title">{t(props.lang,'Choose your Cero')}</h3>
                     <p className="btn" onClick={props.toggle}>{t(props.lang,'close')} </p>
                 </div>
             </div>
