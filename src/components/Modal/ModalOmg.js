@@ -1,12 +1,10 @@
 import React from "react";
-import ReactDOM from 'react-dom';
 import './style.css';
 import {t} from '../../src/translate';
-import {setLang} from "../../redux/actions/lang";
 import {connect} from "react-redux";
-import HeroOption from '../HeroOption';
 
-const ModaOmg = (props) => {
+const ModalOmg = (props) => {
+    console.log(props.fightResult);
     return (
         <div className="modal modal-succes modal-omg">
         <div className="modal__content">
@@ -22,10 +20,10 @@ const ModaOmg = (props) => {
              </div>
         </div>
         <div className="modal__flex">
-            <p className="btn"  onClick={props.hide} >
+            <p className="btn"  onClick={() => props.toggle('fight-result')} >
                 {t(props.lang, 'Back')}
             </p>
-            <p className="main-btn"  onClick={props.hide} >
+            <p className="main-btn active"  onClick={() => props.toggle('success-fight')} >
                 {t(props.lang, 'Open')}
             </p>
         </div>
@@ -39,6 +37,4 @@ const mapStateToProps = (state) => {
     return { lang: state.lang}
 }
 
-const mapDispatchToProps = { setLang }
-
-export default connect(mapStateToProps, mapDispatchToProps)(ModaOmg);
+export default connect(mapStateToProps)(ModalOmg);

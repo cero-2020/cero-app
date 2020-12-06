@@ -1,12 +1,34 @@
 import React, {useState} from "react";
 import './style.css';
 import {t} from '../../src/translate';
-import {setLang} from "../../redux/actions/lang";
 import {connect} from "react-redux";
 import Hero from '../Hero/Hero';
 
 const ModalResult = (props) => {
-    console.log(props)
+    const [showLog, setShowLog] = useState(false)
+
+    const renderLog = () => {
+        return props.fightResult.logger.map((row, key) => {
+            return <li key={key}>{row}</li>;
+        })
+    }
+
+    const renderBtnRewardOrClose = () => {
+        if (true === props.fightResult.isHero1Win) {
+            return (
+                <p className="main-btn active"  onClick={() => props.toggle('omg')} >
+                    {t(props.lang, 'Take reward!')}
+                    <img  src={`${process.env.PUBLIC_URL}/images/reward.svg`} />
+                </p>
+            );
+        } else {
+            return (
+                <p className="main-btn active"  onClick={() => props.toggle('close')} >
+                    {t(props.lang, 'Close')}
+                </p>
+            );
+        }
+    }
     return (
         <div className="modal modal-result">
             <div className="modal__content">
@@ -28,29 +50,16 @@ const ModalResult = (props) => {
                         <p className={"modal__lose-text"}>{t(props.lang,"You fought like a tiger. The sound of battle rang out for hundreds of kilometers. But unfortunately the enemy turned out to be quicker. Don't be upset, cero, learn from your mistakes,")}<span>{t(props.lang,' defeat')}</span>{t(props.lang,'is an experience! Get ready for a new battle and everything will work out!!')}</p>
                 }
                 <div className="modal__flex">
-                    <p className="btn"  onClick={props.hide} >
+                    <p className="btn"  onClick={() => setShowLog(!showLog)} >
                         {t(props.lang, 'Show logs')}
                     </p>
-                    <p className="main-btn"  onClick={props.hide} >
-                        {t(props.lang, 'Take reward')}
-                        <img  src={`${process.env.PUBLIC_URL}/images/reward.svg`} />
-                    </p>
+                    {renderBtnRewardOrClose()}
                 </div>
-                <div className="modal-log">
+                <div className={"modal-log" + (showLog ? ' active' : '')}>
                     <div className="container">
                         <h4 className="modal-log__title">{t(props.lang,'Combat log')}</h4>
                         <ul>
-                            <li>{t(props.lang,'My life belong to you sir hits Hello mr Anderson ho are you for 8 damage (220 -> 200)')} </li>
-                            <li>{t(props.lang,'My life belong to you sir hits Hello mr Anderson ho are you for 8 damage (220 -> 200)')} </li>
-                            <li>{t(props.lang,'My life belong to you sir hits Hello mr Anderson ho are you for 8 damage (220 -> 200)')} </li>
-                            <li>{t(props.lang,'My life belong to you sir hits Hello mr Anderson ho are you for 8 damage (220 -> 200)')} </li>
-                            <li>{t(props.lang,'My life belong to you sir hits Hello mr Anderson ho are you for 8 damage (220 -> 200)')} </li>
-                            <li>{t(props.lang,'My life belong to you sir hits Hello mr Anderson ho are you for 8 damage (220 -> 200)')} </li>
-                            <li>{t(props.lang,'My life belong to you sir hits Hello mr Anderson ho are you for 8 damage (220 -> 200)')} </li>
-                            <li>{t(props.lang,'My life belong to you sir hits Hello mr Anderson ho are you for 8 damage (220 -> 200)')} </li>
-                            <li>{t(props.lang,'My life belong to you sir hits Hello mr Anderson ho are you for 8 damage (220 -> 200)')} </li>
-                            <li>{t(props.lang,'My life belong to you sir hits Hello mr Anderson ho are you for 8 damage (220 -> 200)')} </li>
-                            <li>{t(props.lang,'My life belong to you sir hits Hello mr Anderson ho are you for 8 damage (220 -> 200)')} </li>
+                            {renderLog()}
                         </ul>
                     </div>
                 </div>

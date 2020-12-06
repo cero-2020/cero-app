@@ -6,22 +6,22 @@ import HeroOption from '../HeroOption';
 import {getRandom} from "../../src/hero-logic/hero-helper";
 import { setToFightHero2 } from "../../redux/actions/heroToFight";
 import {fight} from "../../src/hero-logic/hero-fight";
+import {createRandomHero} from "../../src/hero-logic/create-hero";
 
 const ModalFight = (props) => {
     useEffect(() => {
-        if (null === props.heroToFight.hero2 || props.heroToFight.hero1.info.level !== props.heroToFight.hero2.info.level) {
-            let heroes = [];
-            for (const [address, heroesForAddr] of Object.entries(props.addressToHeroes)) {
-                if (address === props.account.walletFormatted) continue;
-                heroesForAddr.forEach((hero) => {
-                    if (props.heroToFight.hero1.info.level !== hero.info.level) return;
-                    heroes.push(hero)
-                })
-            }
-            let hero2 = heroes[getRandom(heroes.length)];
-            props.setToFightHero2(hero2);
+
+        let heroes = [];
+        for (const [address, heroesForAddr] of Object.entries(props.addressToHeroes)) {
+            if (address === props.account.walletFormatted) continue;
+            heroesForAddr.forEach((hero) => {
+                if (Number(props.heroToFight.hero1.info.level) !== Number(hero.info.level)) return;
+                heroes.push(hero)
+            })
         }
-    })
+        let hero2 = heroes[getRandom(heroes.length)];
+        props.setToFightHero2(hero2);
+    }, [])
 
     const heroesFight = () => {
         let result = fight(props.heroToFight.hero1.info, props.heroToFight.hero2.info);
@@ -30,6 +30,10 @@ const ModalFight = (props) => {
         } else {
 
         }
+        result.newHero = {
+            info: createRandomHero(1)
+        };
+
         props.toggle('fight-result')
         props.setFightResult(result);
     }

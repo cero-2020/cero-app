@@ -77,7 +77,10 @@
     line-height: 117px;
     color: #FDFDFD;
 }
-.modal__text {
+.modal__title.modal__big {
+    text-align: center;
+}
+.modal-omg .modal__text {
     font-weight: normal;
     font-size: 19px;
     line-height: 31px;
@@ -180,6 +183,12 @@
 }
 .modal .container .HeroItem:last-child, .modal__hero .HeroContainer:last-child, .modal.modal-result .container .HeroItem {
     margin: 0;
+}
+.modal-log {
+    display: none;
+}
+.modal-log.active {
+    display: block;
 }
 .modal-log ul {
     max-height: 500px;

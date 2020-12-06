@@ -5,28 +5,28 @@ import {setLang} from "../../redux/actions/lang";
 import {connect} from "react-redux";
 import HeroOption from '../HeroOption';
 
-const ModalSuccess = (props) => {
+const ModalSuccessFight = (props) => {
     return (
         <div className="modal modal-succes">
             <div className="modal__content">
                 <div className="modal__top">
                     <div className="container">
-                        <h3 className="modal__title modal__big">{t(props.lang,'YEAH!')}</h3>
-                        <p className="modal__text">{t(props.lang,'You have a level')} <span>{props.heroCreated.info.level} Cero,</span> {t(props.lang,'congratulations! Keep fighting to level up and become even stronger!')} </p>
+                        <h3 className="modal__title modal__big">{t(props.lang,'WOW!')}</h3>
+                        <p className="modal__text">{t(props.lang,'You get a new Cero, congratulations! Keep fighting  and level up!')}</p>
                     </div>
                 </div>
                 <div className="modal__hero">
                     <div className="container">
-                        <HeroOption heroData={props.heroCreated}/>
+                        <HeroOption heroData={props.fightResult.newHero}/>
                     </div>
                 </div>
                 <div className="modal__flex">
-                    <p className="btn" onClick={props.toggle} >
+                    <p className="btn"  onClick={() => props.toggle('close')} >
                         {t(props.lang, 'Close')}
                     </p>
-                    <p className="main-btn" onClick={props.toggle} >
-                        {t(props.lang, 'Go fight!')}
-                    </p>
+                    {/*<p className="main-btn"  onClick={props.toggle} >*/}
+                    {/*    {t(props.lang, 'Go fight!')}*/}
+                    {/*</p>*/}
                 </div>
             </div>
         </div>
@@ -42,4 +42,4 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = { setLang }
 
-export default connect(mapStateToProps, mapDispatchToProps)(ModalSuccess);
+export default connect(mapStateToProps, mapDispatchToProps)(ModalSuccessFight);
