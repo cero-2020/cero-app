@@ -23,9 +23,10 @@ const Header = (props) => {
     };
 
     const renderFightButton = () => {
-        if (null === props.account.wallet) return '';
+        let heroes = props.addressToHeroes[props.account.walletFormatted] || [];
+        if (null === props.account.wallet || 0 === heroes.length) return '';
         return (
-            <p onClick={toggle} className="main-btn header-btn">{t(props.lang,'Start fight')} <img src={Btn}/></p>
+            <Link onClick={toggle} className="main-btn header-btn">{t(props.lang,'Start fight')} <img src={Btn}/></Link>
         );
     };
 
@@ -55,6 +56,7 @@ const Header = (props) => {
 const mapStateToProps = (state) => {
     return {
         lang: state.lang,
+        addressToHeroes: state.addressToHeroes,
         account: state.account
     }
 }
