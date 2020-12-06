@@ -7,7 +7,7 @@ import {capitalizeFirstLetter} from '../../src/helper'
 
 const HeroItem = (props) => {
     return (
-        <div className="HeroItem">
+        <>
             <img src={HeroImage(props.heroData.info.heroClass)} className="HeroImg"/>
             <div className="HeroItem__container">
                 <p className="HeroItem-subtitle">{t(props.lang,'name')}</p>
@@ -23,7 +23,7 @@ const HeroItem = (props) => {
                     <span className="HeroItem-level-sub">{t(props.lang,'lvl')}</span>
                 </p>
             </div>
-        </div>
+        </>
     );
 }
 

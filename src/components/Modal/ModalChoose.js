@@ -16,7 +16,6 @@ const ModalChoose = (props) => {
                 });
             } else {
                 return heroes.map((heroData, key) => {
-                    console.log(heroData);
                     if (heroData.number === props.heroToCreate.hero1.number || heroData.info.level !== props.heroToCreate.hero1.info.level) return '';
                     return (<Hero key={ key } heroData={ heroData } action={'createHero2'} toggle={props.toggle}/>);
                 });

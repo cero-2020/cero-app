@@ -6,12 +6,6 @@ import {setToCreateHero1, setToCreateHero2} from "../../redux/actions/heroToCrea
 import HeroItem from "./HeroItem";
 
 const Hero = (props) => {
-    return (
-        <Link to={"/hero-stats?number=" + props.heroData.number} key="key" className="Link_item">
-            <HeroItem heroData={props.heroData}/>
-        </Link>
-    );
-
     if ('createHero1' === props.action) {
         return (
             <div onClick={() => {props.setToCreateHero1(props.heroData); props.toggle();}} className="HeroItem">
