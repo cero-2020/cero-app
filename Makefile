@@ -7,9 +7,10 @@ release: deploy node_modules
 	cd deploy &&\
  		git add -f . &&\
  		git commit -m "release ${RELEASE}" &&\
- 		git push
+ 		git push || true
+	@rm -fr deploy
 	@echo "released on https://cero-2020.github.io"
 deploy:
-	git clone git@github.com:cero-2020/cero-2020.github.io.git deploy
+	git clone --depth 1 git@github.com:cero-2020/cero-2020.github.io.git deploy
 node_modules:
 	yarn

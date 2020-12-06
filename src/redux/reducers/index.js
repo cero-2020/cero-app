@@ -6,6 +6,7 @@ import account from "./src/account";
 import addressToHeroes from "./src/addressToHeroes";
 import syncData from "./src/syncData";
 import heroToCreate from "./src/heroToCreate";
+import heroToFight from "./src/heroToFight";
 import heroCreated from "./src/heroCreated";
 
 const rootReducer = () => combineReducers({
@@ -14,6 +15,7 @@ const rootReducer = () => combineReducers({
     account: account,
     addressToHeroes: addressToHeroes,
     syncData: syncData,
+    heroToFight: heroToFight,
     heroToCreate: heroToCreate,
     heroCreated: heroCreated
 });
