@@ -3,43 +3,52 @@ import './style.css';
 import {t} from '../../src/translate';
 import {connect} from "react-redux";
 import Modal from "./index";
-import HeroItem from "../Hero/HeroItem";
 import useModal from "./useModal";
+import Hero from "../Hero/Hero";
+import {setToFightHero1} from "../../redux/actions/heroToFight";
 
 const ModalFightSelect = (props) => {
     const {isShowing, toggle} = useModal();
 
     const renderHeroes = () => {
         let heroes = props.addressToHeroes[props.account.walletFormatted];
-        return heroes.map((heroData, key) => {
-            return (<HeroItem key={ key } heroData={ heroData }/>);
-        });
+        if (undefined === heroes || 0 === heroes.length) {
+            return '';
+        } else {
+            return heroes.map((heroData, key) => {
+                return (<div onClick={() => {
+                    props.setToFightHero1(props.heroData);
+                    // props.toggle(true);
+                    // toggle(false);
+                }} className="HeroItem">
+                    <Hero key={key} heroData={heroData} action={'none'}/>
+                </div>);
+            });
+        }
     }
 
     return (
         <div className="modal">
-        <div className="modal__content">
-        <div className="modal__top">
-            <div className="container">
-                <h3 className="modal__title">{t(props.lang,'Choice your cero')}</h3>
-                <p className="btn" onClick={props.toggle}>{t(props.lang,'close')} </p>
+            <div className="modal__content">
+                <div className="modal__top">
+                    <div className="container">
+                        <h3 className="modal__title">{t(props.lang, 'Choice your cero')}</h3>
+                        <p className="btn" onClick={props.toggle}>{t(props.lang, 'close')} </p>
+                    </div>
+                </div>
+                <div className="modal__hero">
+                    <div className="container">
+                        {renderHeroes()}
+                    </div>
+                </div>
+                <div>
+                    <p className="main-btn">
+                        {t(props.lang, 'Find the enemy')}
+                    </p>
+                </div>
             </div>
+            <Modal isShowingModalFight={isShowing} toggle={toggle}/>
         </div>
-        <div className="modal__hero">
-            <div className="container">
-                {renderHeroes()}
-             </div>
-        </div>
-        <div>
-            <p className="main-btn"  onClick={()=>{
-                <Modal isShowingModalFight={props.isShowing} toggle={props.toggle}/>
-            }} >
-                {t(props.lang, 'Find the enemy')}
-            </p>
-        </div>
-        </div>
-        <Modal isShowingModalFight={isShowing} toggle={toggle}/>
-    </div>
     )
 }
 
@@ -49,7 +58,15 @@ const mapStateToProps = (state) => {
         drizzle: state.drizzle,
         account: state.account,
         addressToHeroes: state.addressToHeroes,
+        heroToFight: state.heroToFight,
     }
 }
 
-export default connect(mapStateToProps)(ModalFightSelect);
+const mapDispatchToProps = {
+    setToFightHero1,
+}
+
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps,
+)(ModalFightSelect);
