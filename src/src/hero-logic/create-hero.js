@@ -50,6 +50,14 @@ export function createBaseWizard(level) {
     return obj;
 }
 
+function heroParamsToNum(hero) {
+    hero.level = Number(hero.level);
+    hero.strength = Number(hero.strength);
+    hero.protection = Number(hero.protection);
+    hero.agility = Number(hero.agility);
+    hero.magic = Number(hero.magic);
+    return hero;
+}
 function recalculateBasePoint(hero1, hero2) {
     let st_base = Math.ceil((hero1.strength + hero2.strength) / (2 * hero1.level));
     st_base = getRandom(101) > 50 ? st_base + 1 : st_base;
@@ -70,6 +78,7 @@ function recalculateBasePoint(hero1, hero2) {
         ma_base: ma_base
     }
 }
+
 // let hero = {
 //     name: '',
 //     level: 0,
@@ -80,15 +89,18 @@ function recalculateBasePoint(hero1, hero2) {
 //     magic: 0
 // }
 export function heroEvolution(hero1, hero2) {
+    hero1 = heroParamsToNum(hero1);
+    hero2 = heroParamsToNum(hero2);
+
     if (hero1.level !== hero2.level) {
         return null;
     }
 
-    let newLevel = hero1.level + 1;
+    let newLevel = Number(hero1.level) + 1;
 
     let obj = {}
     let newPoint = recalculateBasePoint(hero1, hero2);
-    console.log(newPoint);
+    // console.log(newPoint);
     if (newPoint.ag_base >= newPoint.ma_base && newPoint.ag_base > newPoint.pr_base && newPoint.ma_base < 6) {
         obj = createBase(newLevel, newPoint.st_base, newPoint.pr_base, newPoint.ag_base, newPoint.ma_base, 10, 6, 10, 0)
 
@@ -98,7 +110,7 @@ export function heroEvolution(hero1, hero2) {
         obj.magic = 0;
         obj.heroClass = 'thief';
     } else if ((newPoint.ma_base >= newPoint.ag_base && newPoint.ma_base > newPoint.pr_base) || newPoint.ma_base >= 6) {
-        obj = createBase(hero1.level + 1, newPoint.st_base, newPoint.pr_base, newPoint.ag_base, newPoint.ma_base, 0, 4, 6, 10)
+        obj = createBase(newLevel, newPoint.st_base, newPoint.pr_base, newPoint.ag_base, newPoint.ma_base, 0, 4, 6, 10)
 
         obj.strength = 0;
         obj.protection = obj.protection > 4 * newLevel ? 4 * newLevel : obj.protection;
@@ -106,14 +118,14 @@ export function heroEvolution(hero1, hero2) {
         obj.magic = obj.magic > 10 * newLevel ? 10 * newLevel : obj.magic;
         obj.heroClass = 'wizard';
     } else {
-        obj = createBase(hero1.level + 1, newPoint.st_base, newPoint.pr_base, newPoint.ag_base, newPoint.ma_base, 10, 10, 6, 0)
+        obj = createBase(newLevel, newPoint.st_base, newPoint.pr_base, newPoint.ag_base, newPoint.ma_base, 10, 10, 6, 0)
         obj.strength = obj.strength > 10 * newLevel ? 10 * newLevel : obj.strength;
         obj.protection = obj.protection > 10 * newLevel ? 10 * newLevel : obj.protection;
         obj.agility = obj.agility > 6 * newLevel ? 6 * newLevel : obj.agility;
         obj.magic = 0;
         obj.heroClass = 'warrior';
     }
-
+    obj.soul = createSoul(obj.name, obj.level, obj.heroClass, obj.strength, obj.protection, obj.agility, obj.magic);
     return obj;
 }
 

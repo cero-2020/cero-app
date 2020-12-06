@@ -10,7 +10,8 @@
     flex: 1;
     width: 580px; 
     min-width: 580px; 
-    max-width: 580px;   
+    max-width: 580px;
+    min-height: 550px;
 }
 
 .HeroStats-item .HeroItem-name {

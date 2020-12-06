@@ -3,7 +3,7 @@ let data = {
   hero2: null,
 };
 
-export default function user(state = data, action) {
+export default function index(state = data, action) {
   switch (action.type) {
     case 'SET_TO_CREATE_HERO_1':
       return {

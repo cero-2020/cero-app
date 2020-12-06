@@ -4,7 +4,7 @@ let data = {
   balance: null,
 };
 
-export default function user(state = data, action) {
+export default function index(state = data, action) {
   switch (action.type) {
     case 'SET_ACCOUNT_WALLET':
       return {

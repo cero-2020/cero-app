@@ -12,19 +12,19 @@ const ModalSuccess = (props) => {
         <div className="modal__top">
             <div className="container">
                 <h3 className="modal__title modal__big">{t(props.lang,'YEAH!')}</h3>
-                <p className="modal__text">{t(props.lang,'You have a level')} <span>2 hero ,</span> {t(props.lang,'congratulations! Keep fighting to level up and become even stronger!')} </p>
+                <p className="modal__text">{t(props.lang,'You have a level')} <span>{props.heroCreated.info.level} Cero,</span> {t(props.lang,'congratulations! Keep fighting to level up and become even stronger!')} </p>
             </div>
         </div>
         <div className="modal__hero">
             <div className="container">
-                <HeroOption />
+                <HeroOption heroData={props.heroCreated}/>
              </div>
         </div>
         <div className="modal__flex">
-            <p className="btn"  onClick={props.hide} >
+            <p className="btn"  onClick={props.toggle} >
                 {t(props.lang, 'Close')}
             </p>
-            <p className="main-btn"  onClick={props.hide} >
+            <p className="main-btn"  onClick={props.toggle} >
                 {t(props.lang, 'Go fight!')}
             </p>
         </div>
@@ -34,7 +34,10 @@ const ModalSuccess = (props) => {
 }
 
 const mapStateToProps = (state) => {
-    return { lang: state.lang}
+    return {
+        heroCreated: state.heroCreated,
+        lang: state.lang
+    }
 }
 
 const mapDispatchToProps = { setLang }
