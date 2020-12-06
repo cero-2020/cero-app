@@ -34,12 +34,15 @@ const HeroList = (props) => {
                     <div className="HeroList__content">
                         <div  className="HeroList__top">
                             <h1 className="top__title">{t(props.lang,'My Cero')}</h1>
-                            <p className="grey-text">{t(props.lang,'Here you can find a list of your heroes. Each of them has unique characteristics and capabilities. Fight against other players and unlock new heroes')}</p>
+                            <p className="grey-text">{t(props.lang,'Here you can find a list of your Ceroes. Each of them has unique characteristics and capabilities. Fight against other players and unlock new Ceroes.')}</p>
                         </div>
                         <div className="HeroList__container">
                             {renderHeroes()}
                         </div>
-                        <p className={'main-btn header-btn'} onClick={() => createHeroLoc()}>{t(props.lang, 'Get your first Cero!')}</p>
+
+                        <div className="HeroList__container">
+                            <a className={'main-btn header-btn'} onClick={() => createHeroLoc()}>{t(props.lang, 'Birth of a new Cero!')}</a>
+                        </div>
                     </div>
                 </div>
             </div>

@@ -29,8 +29,10 @@
     max-width: 520px;
     margin-right: 200px;
 }
+
 .HeroList__container {
     display: flex;
     align-items: center;
     margin-top: 100px;
+    justify-content: center;
 }
