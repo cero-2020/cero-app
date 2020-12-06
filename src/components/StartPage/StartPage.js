@@ -50,7 +50,7 @@ const StartPage = (props) => {
             <section className="top">
                 <div className="container">
                     <div >
-                        <h1 className="top__title">{t(props.lang, 'Crypto hero this is cero')}</h1>
+                        <h1 className="top__title">{t(props.lang, 'Crypto hero this is Cero')}</h1>
                         <p className="grey-text top__text">{t(props.lang,'A game in which data is stored in a blockchain')}</p>
                         {connectMetamaskBtn()}
                     </div>
@@ -61,7 +61,7 @@ const StartPage = (props) => {
             <section className="hero">
                 <div className="container">
                     <h2 className="title-min">{t(props.lang,  'Play, upgrade, trade, and win new heroes')}</h2>
-                    <p className="hero__text">{t(props.lang,'Each cero has unique abilities. Unlock new ceroes by defeating or improving ceroes of the same level.')}</p>
+                    <p className="hero__text">{t(props.lang,'Each Cero has unique abilities. Unlock new ceroes by defeating or improving ceroes of the same level.')}</p>
                     <div className="hero__block">
                         <img  src={`${process.env.PUBLIC_URL}/images/player3.svg`} />
                         <img  src={`${process.env.PUBLIC_URL}/images/player1.svg`} />

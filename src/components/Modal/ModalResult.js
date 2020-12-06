@@ -47,7 +47,7 @@ const ModalResult = (props) => {
                         ?
                         <p className={"modal__win-text"}>{t(props.lang,'Legends began to be told about your battle, until the last it was not clear who would win. But fate and experience were on your side. Congratulations on your')}<span>{t(props.lang,'victory,')}</span>{t(props.lang,'Cero!')}</p>
                         :
-                        <p className={"modal__lose-text"}>{t(props.lang,"You fought like a tiger. The sound of battle rang out for hundreds of kilometers. But unfortunately the enemy turned out to be quicker. Don't be upset, cero, learn from your mistakes,")}<span>{t(props.lang,' defeat')}</span>{t(props.lang,'is an experience! Get ready for a new battle and everything will work out!!')}</p>
+                        <p className={"modal__lose-text"}>{t(props.lang,"You fought like a tiger. The sound of battle rang out for hundreds of kilometers. But unfortunately the enemy turned out to be quicker. Don't be upset, Cero, learn from your mistakes,")}<span>{t(props.lang,' defeat')}</span>{t(props.lang,'is an experience! Get ready for a new battle and everything will work out!!')}</p>
                 }
                 <div className="modal__flex">
                     <p className="btn"  onClick={() => setShowLog(!showLog)} >

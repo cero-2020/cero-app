@@ -11,7 +11,7 @@ const ModalSorry = (props) => {
         <div className="modal__top">
             <div className="container">
                 <h3 className="modal__title modal__big">{t(props.lang,'Oh sorry!')}</h3>
-                <p className="modal__text">{t(props.lang,"We apologize, cero, something went wrong! Get back to your journey! There are many evil forces in the world, with which your sword should fight!")} </p>
+                <p className="modal__text">{t(props.lang,"We apologize, Cero, something went wrong! Get back to your journey! There are many evil forces in the world, with which your sword should fight!")} </p>
             </div>
         </div>
         <div className="modal__hero">

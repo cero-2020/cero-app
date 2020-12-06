@@ -73,7 +73,7 @@ const HeroCreate = (props) => {
                             <p
                                 onClick={() => clickCreateHero()}
                                 className={"create-btn main-btn" + (null !== props.heroToCreate.hero1 && null != props.heroToCreate.hero2 ? ' active' : '')}
-                            >{t(props.lang,'Create new cero!')}</p>
+                            >{t(props.lang,'Create new Cero!')}</p>
                         </div>
                     </div>
                 </div>
