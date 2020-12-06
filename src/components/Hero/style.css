@@ -58,10 +58,12 @@
     justify-content: space-between;
 }
 .HeroItem-level {
-    font-weight: 800;
     font-size: 56px;
     line-height: 60px;
     color: #F2994A;
+    display: inline-block;
+    padding-top: 30px;
+    font-weight: bold;
 }
 .HeroItem-level-sub {
     font-weight: 300;

@@ -15,9 +15,9 @@ const HeroOption = (props) => {
             case 'wizard':
                 return t(props.lang,'Magician born in the school of magic. From birth he feels a great craving for everything magical and spiritual.');
             case 'thief':
-                return t(props.lang,'thief desc.')
+                return t(props.lang,'Skillfulness of hands and the ability to hide even in the most crowded place. These are the qualities that real thieves possess.')
             default:
-                return t(props.lang,'warrior desc.')
+                return t(props.lang,'A warrior is born to win! He is brave, strong and always ready to fight.')
         }
     }
     return (
