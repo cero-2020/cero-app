@@ -94,13 +94,13 @@ const HeroStats = (props) => {
                                 <h2>{t(props.lang,'Your stats')}</h2>
                                 {renderTotalInfo()}
                                 <div className="result">
-                                    <div>
-                                        <p>{t(props.lang,'Name')}</p>
-                                        <p>{t(props.lang,'Date & Time')}</p>
-                                        <p>{t(props.lang,'Cero ID')}</p>
-                                        <p>{t(props.lang,'Wallet')}</p>
-                                        <p>{t(props.lang,'Result')}</p>
-                                    </div>
+                                    {/*<div>*/}
+                                    {/*    <p>{t(props.lang,'Name')}</p>*/}
+                                    {/*    <p>{t(props.lang,'Date & Time')}</p>*/}
+                                    {/*    <p>{t(props.lang,'Cero ID')}</p>*/}
+                                    {/*    <p>{t(props.lang,'Wallet')}</p>*/}
+                                    {/*    <p>{t(props.lang,'Result')}</p>*/}
+                                    {/*</div>*/}
                                     {/*{renderStatsList()}*/}
                                 </div>
                             </div>

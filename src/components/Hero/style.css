@@ -17,7 +17,7 @@
     min-width: 315px;
 }
 
-.HeroItem:not(:nth-child(4)) {
+.HeroItem {
     margin-right: 60px;
 }
 

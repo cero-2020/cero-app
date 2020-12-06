@@ -25,12 +25,12 @@ const ModalChoose = (props) => {
     }
 
     return (
-        <div className="modal">
+        <div className="modal modal-choose">
             <div className="modal__content">
             <div className="modal__top">
                 <div className="container">
                     <h3 className="modal__title">{t(props.lang,'Choose your Cero')}</h3>
-                    <p className="btn" onClick={props.toggle}>{t(props.lang,'close')} </p>
+                    <p className="btn" onClick={() => props.toggle('close')}>{t(props.lang,'close')} </p>
                 </div>
             </div>
             <div className="modal__hero">

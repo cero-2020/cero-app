@@ -8,13 +8,13 @@ import HeroItem from "./HeroItem";
 const Hero = (props) => {
     if ('createHero1' === props.action) {
         return (
-            <div onClick={() => {props.setToCreateHero1(props.heroData); props.toggle();}} className="HeroItem">
+            <div onClick={() => {props.setToCreateHero1(props.heroData); props.toggle('close');}} className="HeroItem">
                 <HeroItem heroData={props.heroData}/>
             </div>
         )
     } else if ('createHero2' === props.action) {
         return (
-            <div onClick={() => {props.setToCreateHero2(props.heroData); props.toggle();}} className="HeroItem">
+            <div onClick={() => {props.setToCreateHero2(props.heroData); props.toggle('close');}} className="HeroItem">
                 <HeroItem heroData={props.heroData}/>
             </div>
         )

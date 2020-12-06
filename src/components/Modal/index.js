@@ -13,7 +13,7 @@ const Modal = (props) => {
     return (
         <>
             { props.isShowingModalResult || 'fight-result' === props.active ? <ModalResult toggle={props.toggle} fightResult={props.fightResult} setFightResult={props.setFightResult} /> : null }
-            { props.isShowingChooseHero ? <ModalChoose toggle={props.toggle} /> : null }
+            { props.isShowingChooseHero || 'choose-hero' === props.active ? <ModalChoose toggle={props.toggle} /> : null }
             { props.isShowingModalFigh || 'fight' === props.active ? <ModalFight toggle={props.toggle} fightResult={props.fightResult} setFightResult={props.setFightResult} /> : null }
             { props.isShowingModalFightSelect || 'fight-select' === props.active ? <ModalFightSelect toggle={props.toggle} fightResult={props.fightResult} setFightResult={props.setFightResult}/> : null }
             { props.isShowingModalOmg || 'omg' === props.active ? <ModalOmg toggle={props.toggle} fightResult={props.fightResult} setFightResult={props.setFightResult} /> : null }

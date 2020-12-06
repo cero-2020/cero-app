@@ -30,6 +30,11 @@
 .modal__hero .container {
     display: flex;
     align-items: center;
+
+    padding-bottom: 20px;
+}
+.modal-choose .container {
+    overflow-x: auto;
 }
 .modal__top {
     border-bottom: 1px solid rgba(253, 253, 253, 0.3);
@@ -63,6 +68,10 @@
 .modal-succes .modal__top .container {
     flex-direction: column;
 }
+.modal-succes .modal__top .container p {
+    color: #A8ACB5;
+}
+
 .modal-succes .modal__top {
     border: none;
 }

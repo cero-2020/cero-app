@@ -2,7 +2,7 @@ import { getRandom } from "./hero-helper";
 import { createSoul } from "./create-soul";
 
 const name1 = ['Bomb', 'Chronic', 'Epic', 'Catastrophic', 'Amusing', 'Madden', 'Melancholic', 'Tattered', 'Crying', 'Compulsive', 'Thirsty', 'Exhausted', 'Throbbing', 'Obstinate', 'Disapproving'];
-const name2 = ['devil', 'hairline', 'kid', 'daddy', 'director', 'amanita', 'hump', 'mandarin', 'horsebreeder', 'smoke', 'bike', 'sock', 'nose', 'rooster', 'drink'];
+const name2 = ['devil', 'hairline', 'kid', 'daddy', 'director', 'amanita', 'hump', 'mandarin', 'horse', 'smoke', 'bike', 'sock', 'nose', 'rooster', 'drink'];
 
 function createBase(level, st_base, pr_base, ag_base, ma_base, st_max, pr_max, ag_max, ma_max) {
     st_base = st_base * level;

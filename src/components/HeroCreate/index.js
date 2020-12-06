@@ -10,24 +10,28 @@ import {heroEvolution} from "../../src/hero-logic/create-hero";
 import {setHeroCreated} from "../../redux/actions/heroCreated";
 
 const HeroCreate = (props) => {
-    const {isShowing, toggle} = useModal();
-    const [isShowingModalSuccess, setIsShowingModalSuccess] = useState(false);
+    const [activeModal, setActiveModal] = useState(null);
 
-    function toggleModalSuccess() {
-        setIsShowingModalSuccess(!isShowingModalSuccess);
+    function toggleActiveModal(active) {
+        if ('close' === active) {
+            setActiveModal(null)
+            return;
+        }
+
+        setActiveModal(active)
     }
 
     const renderHeroToCreate = (hero) => {
         if (null === hero) {
             return (
-                <div className="create-blolck" onClick={toggle}>
+                <div className="create-blolck" onClick={() => toggleActiveModal('choose-hero')}>
                     {t(props.lang,'Select your Cero')}
                 </div>
             )
         }
 
         return (
-            <div className="create-blolck" onClick={toggle}>
+            <div className="create-blolck" onClick={() => toggleActiveModal('choose-hero')}>
                 <Hero heroData={hero} action={'none'}/>
             </div>
         )
@@ -39,13 +43,17 @@ const HeroCreate = (props) => {
 
         let hero = heroEvolution(props.heroToCreate.hero1.info, props.heroToCreate.hero2.info);
         props.setHeroCreated(hero);
-        console.log(hero);
+
         let hero1Num = Number(props.heroToCreate.hero1.number);
         let hero2Num = Number(props.heroToCreate.hero2.number);
+        toggleActiveModal('preloader');
         let data = await props.drizzle.contracts.HeroCore.methods.createHero(hero.soul, props.account.wallet, hero1Num, hero2Num, false)
             .send({from: props.account.wallet}, (data) => {
-                toggleModalSuccess();
+                if (data !== null) {
+                    toggleActiveModal(null)
+                }
             });
+        toggleActiveModal('success')
     }
 
     return (
@@ -70,8 +78,7 @@ const HeroCreate = (props) => {
                     </div>
                 </div>
             </div>
-            <Modal isShowingModalSuccess={isShowingModalSuccess} toggle={toggleModalSuccess}/>
-            <Modal isShowingChooseHero={isShowing} toggle={toggle}/>
+            <Modal active={activeModal} toggle={toggleActiveModal}/>
         </>
     );
 }

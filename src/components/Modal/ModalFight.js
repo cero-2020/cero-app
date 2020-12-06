@@ -36,7 +36,11 @@ const ModalFight = (props) => {
         props.setFightResult(result);
         props.toggle('preloader');
         let data = await props.drizzle.contracts.HeroCore.methods.heroesFight(hero1.number, hero2.number, props.account.wallet, result.isHero1Win, newHero.soul)
-            .send({from: props.account.wallet});
+            .send({from: props.account.wallet}, (result) => {
+                if (result !== null) {
+                    props.toggle(null)
+                }
+            });
         props.toggle('fight-result')
 
     }

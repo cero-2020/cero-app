@@ -24,9 +24,9 @@ const ModalSuccess = (props) => {
                     <p className="btn" onClick={props.toggle} >
                         {t(props.lang, 'Close')}
                     </p>
-                    <p className="main-btn" onClick={props.toggle} >
-                        {t(props.lang, 'Go fight!')}
-                    </p>
+                    {/*<p className="main-btn" onClick={props.toggle} >*/}
+                    {/*    {t(props.lang, 'Go fight!')}*/}
+                    {/*</p>*/}
                 </div>
             </div>
         </div>

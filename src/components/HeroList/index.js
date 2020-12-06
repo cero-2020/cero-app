@@ -36,7 +36,9 @@ const HeroList = (props) => {
         let hero = createRandomHero(1);
         toggleActiveModal('preloader');
         let data = await props.drizzle.contracts.HeroCore.methods.createHero(hero.soul, props.account.wallet, 0, 0, true)
-            .send({from: props.account.wallet});
+            .send({from: props.account.wallet}, (result) => {
+                toggleActiveModal(null)
+            });
         toggleActiveModal(null);
     }
 
