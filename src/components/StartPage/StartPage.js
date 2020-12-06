@@ -73,12 +73,11 @@ const StartPage = (props) => {
                     <div className="play__info">
                         <h2 className="title-min">{t(props.lang, 'Play, upgrade, trade, and win')}</h2>
                         <ul>
-                            <li>{t(props.lang, 'Blalala Play and trade heroes asdas dsa')}</li>
-                            <li>{t(props.lang, 'Blalala Play and trade heroes asdas dsa')}</li>
-                            <li>{t(props.lang, 'Blalala Play and trade heroes asdas dsa')}</li>
-                            <li>{t(props.lang, 'Blalala Play and trade heroes asdas dsa')}</li>
-                            <li>{t(props.lang, 'Blalala Play and trade heroes asdas dsa')}</li>
-                            <li>{t(props.lang, 'Blalala Play and trade heroes asdas dsa')}</li>
+                            <li>{t(props.lang, 'Unique abilities of heroes')}</li>
+                            <li>{t(props.lang, 'Hero evolution')}</li>
+                            <li>{t(props.lang, 'Battle in the random fights')}</li>
+                            <li>{t(props.lang, 'If you win, you get a new Cero of the first level')}</li>
+                            <li>{t(props.lang, 'Blockchain application')}</li>
                         </ul>
                     </div>
                 </div>
