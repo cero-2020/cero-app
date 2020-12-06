@@ -49,11 +49,12 @@ const Header = (props) => {
                         { renderMenu() }
                     </div>
                     <div className="header__flex">
-                        <div className="header__lang">
+                        {/*TODO add translate*/}
+                        {/*<div className="header__lang">
                             <p onClick={() => props.setLang('en-GB')} className={props.lang === 'en-GB' ? 'active' : 'inactive'}>EN</p>
                             <span>|</span>
                             <p onClick={() => props.setLang('ru-RU')} className={props.lang === 'ru-RU' ? 'active' : 'inactive'}>RU</p>
-                        </div>
+                        </div>*/}
                         { renderFightButton() }
                     </div>
                 </div>
