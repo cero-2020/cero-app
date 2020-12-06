@@ -14,8 +14,18 @@ const ModalFightSelect = (props) => {
             return '';
         } else {
             return heroes.map((heroData, key) => {
+                let className = 'HeroContainer';
+
+                if (null !== props.heroToFight.hero1 && heroData[0] === props.heroToFight.hero1[0]) {
+                    className += ' HeroContainer'
+                } else if (null !== props.heroToFight.hero1 && heroData[0] !== props.heroToFight.hero1[0]) {
+                    className += ' HeroContainer_active_not'
+                }
+
                 return (
-                    <div onClick={() => props.setToFightHero1(heroData)} className="HeroContainer" key={key}>
+                    <div onClick={() => props.setToFightHero1(heroData)}
+                         className={className}
+                         key={key}>
                         <Hero key={key} heroData={heroData} action={'none'}/>
                     </div>
                 );
