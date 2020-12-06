@@ -4,8 +4,11 @@ import {t} from '../../src/translate';
 import {connect} from "react-redux";
 import Modal from "./index";
 import HeroItem from "../Hero/HeroItem";
+import useModal from "./useModal";
 
 const ModalFightSelect = (props) => {
+    const {isShowing, toggle} = useModal();
+
     const renderHeroes = () => {
         let heroes = props.addressToHeroes[props.account.walletFormatted];
         return heroes.map((heroData, key) => {
@@ -35,6 +38,7 @@ const ModalFightSelect = (props) => {
             </p>
         </div>
         </div>
+        <Modal isShowingModalFight={isShowing} toggle={toggle}/>
     </div>
     )
 }
