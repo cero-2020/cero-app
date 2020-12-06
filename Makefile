@@ -4,6 +4,7 @@ release: deploy node_modules
 	yarn build
 	cd deploy && rm -r -v *
 	cp -r build/. deploy
+	cp  build/index.html deploy/404.html
 	cd deploy &&\
  		git add -f . &&\
  		git commit -m "release ${RELEASE}" &&\
