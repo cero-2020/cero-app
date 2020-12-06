@@ -87,3 +87,8 @@
     color: #848892;
     font-family: 'Gilroy-Regular';
 }
+
+.result .row-result>p {
+    color: #848892;
+    font-weight: bold;
+}

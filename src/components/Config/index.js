@@ -13,6 +13,7 @@ import HeroStats from "../HeroStats/HeroStats";
 import Account from "../Account";
 import {decodeSoul} from "../../src/hero-logic/create-soul";
 import {setAddressToHeroes} from "../../redux/actions/addressToHeroes";
+import {setFightsResults} from "../../redux/actions/fightsResult";
 
 const Config = (props) => {
     const [web3State, setWeb3] = useState(null);
@@ -54,8 +55,10 @@ const Config = (props) => {
         if ((Date.now() - props.syncData.lastUpdate) < 10000 || null === props.drizzleState || null === props.account.wallet) return;
 
         let addressToHeroes = await getAddressesToHeroes();
-        let fights = await test1();
+        let fightsResult = await getFightsResult();
+        console.log(fightsResult);
         if (Object.keys(addressToHeroes).length !== 0) props.setAddressToHeroes(addressToHeroes);
+        if (fightsResult.length !== 0) props.setFightsResults(fightsResult);
 
     })
 
@@ -81,9 +84,20 @@ const Config = (props) => {
         return addressToHeroesNum;
     }
 
-    async function test1() {
+    async function getFightsResult() {
         let data = await props.drizzleState.contracts.HeroCore.methods.getFights().call();
-        console.log(data);
+
+        let fightsResult = [];
+        for (let i = 0; i < data.hero1.length; i++) {
+            let result = {
+                hero1: data.hero1[i],
+                hero2: data.hero2[i],
+                time: data.time[i],
+                winner: data.winner[i],
+            }
+            fightsResult.push(result);
+        }
+        return fightsResult;
     }
 
 
@@ -109,6 +123,6 @@ const mapStateToProps = (state) => {
     }
 }
 
-const mapDispatchToProps = { setDrizzle, setAccountWallet, setAccountBalance, setLastSyncUpdate, setAddressToHeroes }
+const mapDispatchToProps = { setDrizzle, setAccountWallet, setAccountBalance, setLastSyncUpdate, setAddressToHeroes, setFightsResults }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Config)
