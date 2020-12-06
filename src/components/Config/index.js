@@ -5,6 +5,8 @@ import { setAccountWallet, setAccountBalance } from "../../redux/actions/account
 import { setLastSyncUpdate } from "../../redux/actions/syncData";
 import { connect } from "react-redux";
 import {getWeb3} from "../../src/metamask";
+import { createBrowserHistory } from 'history';
+import ReactGA from 'react-ga';
 
 import App from "../StartPage/StartPage";
 import HeroCreate from "../HeroCreate";
@@ -17,6 +19,8 @@ import {setFightsResults} from "../../redux/actions/fightsResult";
 
 const Config = (props) => {
     const [web3State, setWeb3] = useState(null);
+    const trackingId = 'G-9JWDG304QS'; // TODO move ito config env
+    ReactGA.initialize(trackingId);
 
     useEffect(() => {
         // Set drizzle to store
@@ -101,8 +105,18 @@ const Config = (props) => {
     }
 
 
+    const history = createBrowserHistory();
+
+    // Initialize google analytics page view tracking
+    history.listen(location => {
+        ReactGA.set({
+            page: location.pathname, // Update the user's current page
+        });
+        ReactGA.pageview(location.pathname); // Record a pageview for the given page
+    });
+
     return (
-        <Router>
+        <Router history={history}>
             <Switch>
                 <Route path="/account" component={Account} />
                 <Route path="/hero-list" component={HeroList} />
