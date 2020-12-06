@@ -3,12 +3,10 @@ import { Link } from "react-router-dom";
 import './style.css';
 import Logo from '../src/images/cero.svg';
 import Btn from '../src/images/fight.svg';
-import MyCero from '../src/images/my.svg';
 import {t} from '../../src/translate';
-import {setLang} from "../../redux/actions/lang";
 import {connect} from "react-redux";
 import useModal from '../Modal/useModal';
-import ModalFight from "../Modal/ModalFight";
+import Modal from "../Modal";
 
 const Header = (props) => {
     const {isShowing, toggle} = useModal();
@@ -49,7 +47,7 @@ const Header = (props) => {
                </div>
             </div>
         </header>
-        {/*<ModalFight isShowing={false} hide={toggle}/>*/}
+        <Modal isShowingModalFightSelect={isShowing} toggle={toggle}/>
         </>
 
     );
@@ -61,6 +59,4 @@ const mapStateToProps = (state) => {
     }
 }
 
-const mapDispatchToProps = { setLang }
-
-export default connect(mapStateToProps, mapDispatchToProps)(Header);
+export default connect(mapStateToProps)(Header);

@@ -6,7 +6,6 @@ import Header from '../Header/Header';
 import {t} from '../../src/translate';
 import {setLang} from "../../redux/actions/lang";
 import {connect} from "react-redux";
-import Hero from '../Hero/Hero';
 import '../src/font/Gilroy-Regular.woff'; 
 import '../src/font/Gilroy-Bold.woff'; 
 import '../src/font/Helvetica.woff';
@@ -42,12 +41,12 @@ const StartPage = (props) => {
                     <div >
                         <h1 className="top__title">{t(props.lang, 'Crypto hero this is cero')}</h1>
                         <p className="grey-text top__text">{t(props.lang,'Magician born in the school of magic. From birth he feels a great craving for everything magical and spiritual.')}</p>
-                        <p>
+                        <div>
                             <div className="main-btn" onClick={() => connectMetamask()}>
                                 {t(props.lang, 'Connect to')}
                                 <img src={Fox} alt={Fox}/>
                             </div>
-                        </p>
+                        </div>
                     </div>
                     <img  src={`${process.env.PUBLIC_URL}/images/book.png`} />
                 </div>
