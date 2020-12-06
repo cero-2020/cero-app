@@ -7,7 +7,6 @@ import {connect} from "react-redux";
 const Home = (props) => {
 
     async function getHeroesCountLoc() {
-        console.log(props.drizzle);
         let data = await props.drizzle.contracts.HeroCore.methods.getHeroesCount().call();
         console.log(data);
     }

@@ -60,7 +60,6 @@ const Config = (props) => {
 
         let addressToHeroes = await getAddressesToHeroes();
         let fightsResult = await getFightsResult();
-        console.log(fightsResult);
         if (Object.keys(addressToHeroes).length !== 0) props.setAddressToHeroes(addressToHeroes);
         if (fightsResult.length !== 0) props.setFightsResults(fightsResult);
 
@@ -109,6 +108,7 @@ const Config = (props) => {
 
     // Initialize google analytics page view tracking
     history.listen(location => {
+        console.log(location)
         ReactGA.set({
             page: location.pathname, // Update the user's current page
         });

@@ -6,7 +6,6 @@ import {capitalizeFirstLetter} from '../../src/helper'
 import {HeroImage} from "../Hero/HeroImage";
 
 const HeroOption = (props) => {
-    console.log(props)
     if (props.heroData === null || props.heroData === undefined) return '';
     if (Object.keys(props.heroData).length === 0) return '';
 
