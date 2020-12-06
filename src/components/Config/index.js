@@ -54,6 +54,7 @@ const Config = (props) => {
         if ((Date.now() - props.syncData.lastUpdate) < 10000 || null === props.drizzleState || null === props.account.wallet) return;
 
         let addressToHeroes = await getAddressesToHeroes();
+        let fights = await test1();
         if (Object.keys(addressToHeroes).length !== 0) props.setAddressToHeroes(addressToHeroes);
 
     })
@@ -78,6 +79,11 @@ const Config = (props) => {
             }
         }
         return addressToHeroesNum;
+    }
+
+    async function test1() {
+        let data = await props.drizzleState.contracts.HeroCore.methods.getFights().call();
+        console.log(data);
     }
 
 

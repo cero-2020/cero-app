@@ -23,19 +23,22 @@ const ModalFight = (props) => {
         props.setToFightHero2(hero2);
     }, [])
 
-    const heroesFight = () => {
+    async function heroesFight() {
         let result = fight(props.heroToFight.hero1.info, props.heroToFight.hero2.info);
-        if (true === result.isHero1Win) {
 
-        } else {
+        let newHero = createRandomHero(1);
+        let hero1 = props.heroToFight.hero1;
+        let hero2 = props.heroToFight.hero2;
 
-        }
         result.newHero = {
-            info: createRandomHero(1)
+            info: newHero
         };
-
-        props.toggle('fight-result')
         props.setFightResult(result);
+        props.toggle('preloader');
+        let data = await props.drizzle.contracts.HeroCore.methods.heroesFight(hero1.number, hero2.number, props.account.wallet, result.isHero1Win, newHero.soul)
+            .send({from: props.account.wallet});
+        props.toggle('fight-result')
+
     }
 
     return (
@@ -69,7 +72,8 @@ const mapStateToProps = (state) => {
         lang: state.lang,
         addressToHeroes: state.addressToHeroes,
         heroToFight: state.heroToFight,
-        account: state.account
+        account: state.account,
+        drizzle: state.drizzle,
     }
 }
 

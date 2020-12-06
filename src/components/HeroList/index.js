@@ -1,11 +1,24 @@
+import {useState} from 'react';
 import './style.css';
 import Header from '../Header/Header';
 import Hero from '../Hero/Hero';
 import {t} from '../../src/translate';
 import {connect} from "react-redux";
 import {createRandomHero} from "../../src/hero-logic/create-hero";
+import ModalPreloader from "../Modal/ModalPreloader";
+import Modal from "../Modal";
 
 const HeroList = (props) => {
+    const [activeModal, setActiveModal] = useState(null);
+
+    function toggleActiveModal(active) {
+        if ('close' === active) {
+            setActiveModal(null)
+            return;
+        }
+        setActiveModal(active)
+    }
+
     const renderHeroes = () => {
         let heroes = props.addressToHeroes[props.account.walletFormatted];
         if (undefined === heroes || 0 === heroes.length) {
@@ -21,9 +34,10 @@ const HeroList = (props) => {
 
     async function createHeroLoc() {
         let hero = createRandomHero(1);
+        toggleActiveModal('preloader');
         let data = await props.drizzle.contracts.HeroCore.methods.createHero(hero.soul, props.account.wallet, 0, 0, true)
             .send({from: props.account.wallet});
-        console.log(data);
+        toggleActiveModal(null);
     }
 
     return (
@@ -46,6 +60,7 @@ const HeroList = (props) => {
                     </div>
                 </div>
             </div>
+            <Modal active={activeModal} toggle={toggleActiveModal} />
         </div>
     );
 }
